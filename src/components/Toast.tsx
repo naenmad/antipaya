@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 interface ToastProps {
     message: string
@@ -14,7 +14,7 @@ export function Toast({ message, type, isVisible, onClose }: ToastProps) {
         if (isVisible) {
             const timer = setTimeout(() => {
                 onClose()
-            }, 5000) // Auto close after 5 seconds
+            }, 3000) // Auto close after 3 seconds
 
             return () => clearTimeout(timer)
         }
@@ -75,17 +75,17 @@ export function useToast() {
         isVisible: false
     })
 
-    const showToast = (message: string, type: 'success' | 'error' | 'info' = 'info') => {
+    const showToast = useCallback((message: string, type: 'success' | 'error' | 'info' = 'info') => {
         setToast({
             message,
             type,
             isVisible: true
         })
-    }
+    }, [])
 
-    const hideToast = () => {
+    const hideToast = useCallback(() => {
         setToast(prev => ({ ...prev, isVisible: false }))
-    }
+    }, [])
 
     return {
         toast,

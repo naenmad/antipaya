@@ -2,8 +2,9 @@
 
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
-import LoadingScreen from '@/components/LoadingScreen';
 import { useState, useEffect } from 'react';
+import CustomCursor from '@/components/CustomCursor';
+import { Toast, useToast } from '@/components/Toast';
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -20,10 +21,24 @@ export default function Home() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  // Toast hook for small welcome notification
+  const { toast, showToast, hideToast } = useToast();
+
+  useEffect(() => {
+    // show a subtle welcome toast once on first load
+    // guard: only show if not already visible
+    if (!toast.isVisible) {
+      showToast("Welcome to Antipaya — let's build something meaningful.", 'info');
+    }
+    // run only once on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
-      <LoadingScreen />
       <Navigation />
+      <CustomCursor />
+      <Toast message={toast.message} type={toast.type} isVisible={toast.isVisible} onClose={hideToast} />
       <main className="min-h-screen overflow-hidden">
         {/* Hero Section with Enhanced Animations */}
         <section className="relative bg-gradient-to-br from-white via-gray-50 to-pink-50 pt-20 overflow-hidden">
