@@ -4,6 +4,8 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ProgressBar from "@/components/ProgressBar";
+import ScrollProgress from "@/components/ScrollProgress";
+import ContactFloatingButton from "@/components/ContactFloatingButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,8 +52,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="antialiased">
+      <body className="antialiased bg-white dark:bg-gray-900 transition-colors duration-300">
+        <ScrollProgress />
         <ProgressBar />
+  <ContactFloatingButton />
         <div className="min-h-screen flex flex-col">
           <main className="flex-grow">
             {children}

@@ -7,57 +7,107 @@ import { useState } from 'react';
 const projects = [
     {
         id: 1,
-        title: "E-Commerce Mobile App",
+        title: "FlowCommerce - E-Commerce Revolution",
         category: "tech",
-        description: "Cross-platform shopping app built with Flutter, featuring real-time inventory and seamless payments.",
-        tech: ["Flutter", "Firebase", "Stripe API"],
+        description: "Revolutionary e-commerce platform with AI-powered recommendations, real-time inventory management, and seamless multi-payment integration. Built for scale with modern microservices architecture.",
+        tech: ["Flutter", "Firebase", "Stripe API", "Machine Learning", "Redis"],
         image: "/placeholder-project.jpg",
-        featured: true
+        featured: true,
+        stats: { users: "50K+", conversion: "23%", uptime: "99.9%" },
+        year: "2024",
+        client: "FlowCommerce Inc.",
+        duration: "6 months"
     },
     {
         id: 2,
-        title: "Brand Identity for StartupXYZ",
+        title: "FinTech Brand Identity - NeoBank",
         category: "branding",
-        description: "Complete brand overhaul including logo design, color system, and brand guidelines for a fintech startup.",
-        tech: ["Brand Strategy", "Visual Identity", "Guidelines"],
+        description: "Complete brand transformation for a digital bank startup. Created comprehensive brand guidelines, visual identity system, and digital-first brand experience that resonates with Gen-Z users.",
+        tech: ["Brand Strategy", "Visual Identity", "Guidelines", "Digital Design", "Motion Graphics"],
         image: "/placeholder-project.jpg",
-        featured: true
+        featured: true,
+        stats: { awareness: "300%", engagement: "180%", satisfaction: "4.8/5" },
+        year: "2024",
+        client: "NeoBank Solutions",
+        duration: "4 months"
     },
     {
         id: 3,
-        title: "Healthcare Management Platform",
+        title: "HealthBridge - Medical Management Suite",
         category: "tech",
-        description: "Next.js web platform for healthcare providers with patient management and appointment scheduling.",
-        tech: ["Next.js", "PostgreSQL", "Prisma"],
+        description: "Comprehensive healthcare management platform serving 100+ clinics. Features include patient records, appointment scheduling, telemedicine integration, and automated billing systems.",
+        tech: ["Next.js", "PostgreSQL", "Prisma", "WebRTC", "FHIR"],
         image: "/placeholder-project.jpg",
-        featured: false
+        featured: false,
+        stats: { clinics: "100+", patients: "10K+", efficiency: "40%" },
+        year: "2023",
+        client: "HealthBridge Network",
+        duration: "8 months"
     },
     {
         id: 4,
-        title: "Tech Conference 2024",
+        title: "InnovateTech Summit 2024",
         category: "event",
-        description: "Full event planning and execution for a 500-person technology conference including speaker management.",
-        tech: ["Event Planning", "Speaker Management", "Logistics"],
+        description: "Premier technology conference bringing together 2000+ tech leaders, 50+ speakers, and 100+ companies. Full event planning, digital platform, and hybrid experience management.",
+        tech: ["Event Planning", "Speaker Management", "Logistics", "Streaming Platform", "Mobile App"],
         image: "/placeholder-project.jpg",
-        featured: true
+        featured: true,
+        stats: { attendees: "2000+", speakers: "50+", satisfaction: "4.9/5" },
+        year: "2024",
+        client: "Tech Innovation Council",
+        duration: "12 months"
     },
     {
         id: 5,
-        title: "API Gateway for Microservices",
+        title: "CloudScale API Gateway",
         category: "tech",
-        description: "Scalable API gateway handling authentication, rate limiting, and service orchestration.",
-        tech: ["Node.js", "Docker", "Kong Gateway"],
+        description: "Enterprise-grade API gateway processing 1M+ requests daily. Features advanced authentication, rate limiting, caching, and real-time monitoring for microservices architecture.",
+        tech: ["Node.js", "Docker", "Kong Gateway", "Kubernetes", "Prometheus"],
         image: "/placeholder-project.jpg",
-        featured: false
+        featured: false,
+        stats: { requests: "1M+/day", latency: "<50ms", availability: "99.99%" },
+        year: "2023",
+        client: "CloudScale Systems",
+        duration: "5 months"
     },
     {
         id: 6,
-        title: "Sustainable Fashion Brand",
+        title: "EcoFashion Brand Universe",
         category: "branding",
-        description: "Brand worldbuilding for eco-friendly fashion startup, including story development and visual identity.",
-        tech: ["Brand Story", "Sustainable Design", "Packaging"],
+        description: "Sustainable fashion brand worldbuilding including brand story, packaging design, digital presence, and social impact messaging. Created authentic connection with eco-conscious consumers.",
+        tech: ["Brand Story", "Sustainable Design", "Packaging", "Content Strategy", "Social Impact"],
         image: "/placeholder-project.jpg",
-        featured: false
+        featured: false,
+        stats: { engagement: "250%", sales: "180%", impact: "Carbon Neutral" },
+        year: "2023",
+        client: "EcoFashion Co.",
+        duration: "6 months"
+    },
+    {
+        id: 7,
+        title: "EdTech Learning Platform",
+        category: "tech",
+        description: "Interactive learning platform serving 25K+ students with AI-powered personalized learning paths, live classes, and comprehensive progress tracking.",
+        tech: ["React", "Node.js", "MongoDB", "WebRTC", "Machine Learning"],
+        image: "/placeholder-project.jpg",
+        featured: false,
+        stats: { students: "25K+", completion: "85%", satisfaction: "4.7/5" },
+        year: "2023",
+        client: "EduTech Academy",
+        duration: "7 months"
+    },
+    {
+        id: 8,
+        title: "Smart City IoT Dashboard",
+        category: "tech",
+        description: "Real-time city management dashboard integrating 1000+ IoT sensors for traffic, air quality, and energy monitoring. Helping cities make data-driven decisions.",
+        tech: ["React", "Python", "InfluxDB", "IoT", "Data Visualization"],
+        image: "/placeholder-project.jpg",
+        featured: false,
+        stats: { sensors: "1000+", cities: "5", efficiency: "30%" },
+        year: "2024",
+        client: "Smart City Solutions",
+        duration: "10 months"
     }
 ];
 
@@ -101,8 +151,8 @@ export default function Portfolio() {
                                     key={category.id}
                                     onClick={() => setSelectedCategory(category.id)}
                                     className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.id
-                                            ? 'bg-primary text-white shadow-lg'
-                                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                        ? 'bg-primary text-white shadow-lg'
+                                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                                         }`}
                                 >
                                     {category.label}
@@ -150,15 +200,29 @@ export default function Portfolio() {
                                                 )}
                                             </div>
                                         </div>
+
+                                        {/* Project Year Badge */}
+                                        <div className="absolute top-4 right-4">
+                                            <span className="bg-white/90 backdrop-blur-sm text-gray-800 text-xs px-2 py-1 rounded-full font-medium">
+                                                {project.year}
+                                            </span>
+                                        </div>
                                     </div>
 
                                     {/* Project Content */}
                                     <div className="p-6">
-                                        <div className="flex items-center justify-between mb-3">
-                                            <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
-                                            <span className={`inline-block w-3 h-3 rounded-full ${project.category === 'tech' ? 'bg-primary' :
-                                                    project.category === 'branding' ? 'bg-secondary' :
-                                                        'bg-accent'
+                                        <div className="flex items-start justify-between mb-3">
+                                            <div className="flex-1">
+                                                <h3 className="text-xl font-bold text-gray-900 mb-1">{project.title}</h3>
+                                                <div className="flex items-center gap-2 text-sm text-gray-500">
+                                                    <span>{project.client}</span>
+                                                    <span>•</span>
+                                                    <span>{project.duration}</span>
+                                                </div>
+                                            </div>
+                                            <span className={`inline-block w-3 h-3 rounded-full flex-shrink-0 ${project.category === 'tech' ? 'bg-primary' :
+                                                project.category === 'branding' ? 'bg-secondary' :
+                                                    'bg-accent'
                                                 }`}></span>
                                         </div>
 
@@ -166,8 +230,21 @@ export default function Portfolio() {
                                             {project.description}
                                         </p>
 
+                                        {/* Project Stats */}
+                                        {project.stats && (
+                                            <div className="grid grid-cols-3 gap-3 mb-4 p-3 bg-gray-50 rounded-lg">
+                                                {Object.entries(project.stats).map(([key, value], index) => (
+                                                    <div key={index} className="text-center">
+                                                        <div className="text-sm font-bold text-gray-900">{value}</div>
+                                                        <div className="text-xs text-gray-500 capitalize">{key}</div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+
+                                        {/* Tech Stack */}
                                         <div className="flex flex-wrap gap-2 mb-4">
-                                            {project.tech.map((tech, index) => (
+                                            {project.tech.slice(0, 3).map((tech, index) => (
                                                 <span
                                                     key={index}
                                                     className="inline-block bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-md font-medium"
@@ -175,10 +252,15 @@ export default function Portfolio() {
                                                     {tech}
                                                 </span>
                                             ))}
+                                            {project.tech.length > 3 && (
+                                                <span className="inline-block bg-gray-200 text-gray-500 text-xs px-2 py-1 rounded-md font-medium">
+                                                    +{project.tech.length - 3} more
+                                                </span>
+                                            )}
                                         </div>
 
-                                        <button className="w-full bg-gray-900 text-white py-2 rounded-lg hover:bg-gray-800 transition-colors duration-300 font-medium">
-                                            View Project
+                                        <button className="w-full bg-gray-900 text-white py-2.5 rounded-lg hover:bg-gray-800 transition-colors duration-300 font-medium group-hover:bg-primary">
+                                            View Details
                                         </button>
                                     </div>
                                 </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
     const currentYear = new Date().getFullYear()
@@ -11,7 +12,16 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Company Info */}
                     <div className="space-y-4">
-                        <h3 className="text-2xl font-bold text-primary">Antipaya</h3>
+                        <div className="flex items-center space-x-3">
+                            <Image
+                                src="/logo.svg"
+                                alt="Antipaya Logo"
+                                width={32}
+                                height={32}
+                                className="brightness-0 invert"
+                            />
+                            <h3 className="text-2xl font-bold text-primary">Antipaya</h3>
+                        </div>
                         <p className="text-gray-300 text-sm leading-relaxed">
                             Build with soul. Scale with clarity.<br />
                             Solusi modular, kreatif, dan profesional untuk kebutuhan digital Anda.
@@ -81,8 +91,13 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/blog" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                                    Blog
+                                <Link href="/testimonials" className="text-gray-300 hover:text-primary transition-colors duration-200">
+                                    Testimonials
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/contact" className="text-gray-300 hover:text-primary transition-colors duration-200">
+                                    Contact
                                 </Link>
                             </li>
                         </ul>

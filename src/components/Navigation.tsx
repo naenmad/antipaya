@@ -1,7 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
+import DarkModeToggle from './DarkModeToggle';
 
 const Navigation = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +14,6 @@ const Navigation = () => {
         { href: '/services', label: 'Services' },
         { href: '/portfolio', label: 'Portfolio' },
         { href: '/testimonials', label: 'Testimonials' },
-        { href: '/blog', label: 'Blog' },
         { href: '/contact', label: 'Contact' },
     ];
 
@@ -21,8 +22,20 @@ const Navigation = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-2">
-                        <div className="text-2xl font-bold text-primary">Antipaya</div>
+                    <Link href="/" className="flex items-center space-x-3 group">
+                        <div className="relative">
+                            <Image
+                                src="/logo.svg"
+                                alt="Antipaya Logo"
+                                width={40}
+                                height={40}
+                                className="transition-transform duration-300 group-hover:scale-110"
+                                priority
+                            />
+                        </div>
+                        <div className="text-2xl font-bold text-primary group-hover:text-secondary transition-colors duration-300">
+                            Antipaya
+                        </div>
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -42,10 +55,12 @@ const Navigation = () => {
                         >
                             Get Started
                         </Link>
+                        <DarkModeToggle />
                     </div>
 
                     {/* Mobile menu button */}
-                    <div className="md:hidden">
+                    <div className="md:hidden flex items-center space-x-3">
+                        <DarkModeToggle />
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                             className="text-gray-700 hover:text-primary focus:outline-none focus:text-primary"
