@@ -5,10 +5,12 @@ import Navigation from '@/components/Navigation';
 import { useState, useEffect } from 'react';
 import CustomCursor from '@/components/CustomCursor';
 import { Toast, useToast } from '@/components/Toast';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setIsLoaded(true);
@@ -25,14 +27,16 @@ export default function Home() {
   const { toast, showToast, hideToast } = useToast();
 
   useEffect(() => {
-    // show a subtle welcome toast once on first load
-    // guard: only show if not already visible
-    if (!toast.isVisible) {
-      showToast("Welcome to Antipaya — let's build something meaningful.", 'info');
+    // show a subtle welcome toast only once per session
+    const hasSeenWelcomeToast = localStorage.getItem('hasSeenWelcomeToast');
+
+    if (!hasSeenWelcomeToast && !toast.isVisible) {
+      showToast(t('toast.welcome'), 'info');
+      localStorage.setItem('hasSeenWelcomeToast', 'true');
     }
     // run only once on mount
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [t]);
 
   return (
     <>
@@ -75,14 +79,13 @@ export default function Home() {
               <div className={`space-y-8 transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                 <div className="space-y-4">
                   <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                    <span className={`block text-gray-900 transition-all duration-700 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>Build with</span>
-                    <span className={`block text-primary transition-all duration-700 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>soul.</span>
-                    <span className={`block text-gray-900 transition-all duration-700 delay-400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>Scale with</span>
-                    <span className={`block text-secondary transition-all duration-700 delay-500 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>clarity.</span>
+                    <span className={`block text-gray-900 transition-all duration-700 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>{t('home.hero.title1')}</span>
+                    <span className={`block text-primary transition-all duration-700 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>{t('home.hero.title2')}</span>
+                    <span className={`block text-gray-900 transition-all duration-700 delay-400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>{t('home.hero.title3')}</span>
+                    <span className={`block text-secondary transition-all duration-700 delay-500 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>{t('home.hero.title4')}</span>
                   </h1>
                   <p className={`text-xl text-gray-600 max-w-lg transition-all duration-700 delay-600 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                    We&apos;re <strong className="text-primary">Antipaya</strong> — a software & digital house
-                    crafting modular solutions that grow with your vision.
+                    {t('home.hero.subtitle')}
                   </p>
                 </div>
 
@@ -91,14 +94,14 @@ export default function Home() {
                     href="/services"
                     className="group bg-primary text-white px-8 py-4 rounded-full hover:bg-secondary transition-all duration-300 font-semibold text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 relative overflow-hidden"
                   >
-                    <span className="relative z-10">Explore Our Services</span>
+                    <span className="relative z-10">{t('home.hero.cta1')}</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Link>
                   <Link
                     href="/portfolio"
                     className="group border-2 border-primary text-primary px-8 py-4 rounded-full hover:bg-primary hover:text-white transition-all duration-300 font-semibold text-center relative overflow-hidden"
                   >
-                    <span className="relative z-10">See Our Work</span>
+                    <span className="relative z-10">{t('home.hero.cta2')}</span>
                     <div className="absolute inset-0 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                   </Link>
                 </div>
@@ -117,25 +120,25 @@ export default function Home() {
                       <div className="space-y-2">
                         <div className="flex items-center space-x-2">
                           <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                          <span className="text-sm font-medium text-gray-700">FlowCommerce API</span>
+                          <span className="text-sm font-medium text-gray-700">{t('project.flowcommerce')}</span>
                         </div>
                         <div className="flex items-center space-x-2">
                           <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <span className="text-sm font-medium text-gray-700">HealthBridge Platform</span>
+                          <span className="text-sm font-medium text-gray-700">{t('project.healthbridge')}</span>
                         </div>
                         <div className="flex items-center space-x-2">
                           <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          <span className="text-sm font-medium text-gray-700">NeoBank Identity</span>
+                          <span className="text-sm font-medium text-gray-700">{t('project.neobank')}</span>
                         </div>
                       </div>
                       <div className="grid grid-cols-2 gap-4 pt-4">
                         <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/20 rounded-lg">
                           <div className="text-2xl font-bold text-primary">50+</div>
-                          <div className="text-xs text-gray-600">Projects</div>
+                          <div className="text-xs text-gray-600">{t('stats.projects')}</div>
                         </div>
                         <div className="p-4 bg-gradient-to-br from-secondary/10 to-secondary/20 rounded-lg">
                           <div className="text-2xl font-bold text-secondary">25+</div>
-                          <div className="text-xs text-gray-600">Clients</div>
+                          <div className="text-xs text-gray-600">{t('stats.clients')}</div>
                         </div>
                       </div>
                     </div>
@@ -153,12 +156,10 @@ export default function Home() {
         <section className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              We&apos;re not just another software house
+              {t('home.intro.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-              We build experiences that matter. From Flutter mobile apps to Next.js web platforms,
-              from brand worldbuilding to seamless API architectures — everything we create is
-              designed to be modular, scalable, and deeply meaningful.
+              {t('home.intro.subtitle')}
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mt-16">
@@ -168,9 +169,9 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Modular</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('home.features.modular.title')}</h3>
                 <p className="text-gray-600">
-                  Every component, every system, every solution — built to adapt and evolve with your needs.
+                  {t('home.features.modular.desc')}
                 </p>
               </div>
 
@@ -180,9 +181,9 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Scalable</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('home.features.scalable.title')}</h3>
                 <p className="text-gray-600">
-                  From MVP to enterprise. Our architecture grows with your ambitions, no matter how big.
+                  {t('home.features.scalable.desc')}
                 </p>
               </div>
 
@@ -192,9 +193,9 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Soulful</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('home.features.soulful.title')}</h3>
                 <p className="text-gray-600">
-                  Technology with purpose. Every line of code carries intention, every design tells a story.
+                  {t('home.features.soulful.desc')}
                 </p>
               </div>
             </div>
@@ -205,16 +206,16 @@ export default function Home() {
         <section className="py-20 bg-gradient-to-r from-primary to-secondary">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
-              Ready to build something extraordinary?
+              {t('home.cta.title')}
             </h2>
             <p className="text-xl text-black mb-8 dark:text-white">
-              Let&apos;s turn your vision into reality. Start with a conversation.
+              {t('home.cta.subtitle')}
             </p>
             <Link
               href="/contact"
               className="inline-block bg-white text-primary px-8 py-4 rounded-full hover:bg-gray-100 transition-colors duration-300 font-semibold shadow-lg"
             >
-              Start Your Project
+              {t('home.cta.button')}
             </Link>
           </div>
         </section>

@@ -1,12 +1,10 @@
-import { Metadata } from 'next';
-import Navigation from '@/components/Navigation';
+'use client';
 
-export const metadata: Metadata = {
-    title: 'Our Services',
-    description: 'Comprehensive software development, branding, and digital solutions. From Flutter apps to Next.js platforms, API development to brand worldbuilding.',
-};
+import Navigation from '@/components/Navigation';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Services() {
+    const { t } = useLanguage();
     return (
         <>
             <Navigation />
@@ -15,11 +13,10 @@ export default function Services() {
                 <section className="bg-gradient-to-br from-white via-gray-50 to-pink-50 py-20">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                            Our <span className="text-primary">Services</span>
+                            {t('services.title')}
                         </h1>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            From concept to deployment, we craft digital solutions that grow with your vision.
-                            Every service is designed to be modular, scalable, and deeply meaningful.
+                            {t('services.subtitle')}
                         </p>
                     </div>
                 </section>
@@ -37,39 +34,38 @@ export default function Services() {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                                         </svg>
                                     </div>
-                                    <h2 className="text-2xl font-bold text-gray-900">Software Development</h2>
+                                    <h2 className="text-2xl font-bold text-gray-900">{t('services.software.title')}</h2>
                                 </div>
                                 <p className="text-gray-600 mb-6">
-                                    Full-stack solutions built for performance, scalability, and user delight.
-                                    We specialize in modern frameworks and cutting-edge technologies.
+                                    {t('services.software.description')}
                                 </p>
                                 <div className="space-y-4">
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Flutter Mobile Apps</h3>
-                                            <p className="text-sm text-gray-600">Cross-platform mobile applications with native performance</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.software.features.flutter.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.software.features.flutter.description')}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Next.js Web Platforms</h3>
-                                            <p className="text-sm text-gray-600">Fast, SEO-optimized web applications with modern React</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.software.features.nextjs.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.software.features.nextjs.description')}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Modular API Development</h3>
-                                            <p className="text-sm text-gray-600">Scalable backend architectures and RESTful/GraphQL APIs</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.software.features.api.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.software.features.api.description')}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Cloud Architecture</h3>
-                                            <p className="text-sm text-gray-600">AWS, Azure, and Google Cloud deployment solutions</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.software.features.cloud.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.software.features.cloud.description')}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -83,39 +79,38 @@ export default function Services() {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
                                         </svg>
                                     </div>
-                                    <h2 className="text-2xl font-bold text-gray-900">Branding & Worldbuilding</h2>
+                                    <h2 className="text-2xl font-bold text-gray-900">{t('services.branding.title')}</h2>
                                 </div>
                                 <p className="text-gray-600 mb-6">
-                                    We craft brand identities that tell stories and create worlds that resonate.
-                                    Every brand we build has soul and purpose.
+                                    {t('services.branding.description')}
                                 </p>
                                 <div className="space-y-4">
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Brand Identity Design</h3>
-                                            <p className="text-sm text-gray-600">Logos, color systems, and visual language that speaks</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.branding.features.identity.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.branding.features.identity.description')}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Brand Strategy</h3>
-                                            <p className="text-sm text-gray-600">Positioning, messaging, and narrative development</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.branding.features.strategy.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.branding.features.strategy.description')}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Digital Brand Experience</h3>
-                                            <p className="text-sm text-gray-600">Cohesive brand implementation across all touchpoints</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.branding.features.digital.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.branding.features.digital.description')}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Worldbuilding & Lore</h3>
-                                            <p className="text-sm text-gray-600">Creating rich backstories and universes for your brand</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.branding.features.worldbuilding.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.branding.features.worldbuilding.description')}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -129,39 +124,38 @@ export default function Services() {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                         </svg>
                                     </div>
-                                    <h2 className="text-2xl font-bold text-gray-900">Event & Experience Planning</h2>
+                                    <h2 className="text-2xl font-bold text-gray-900">{t('services.events.title')}</h2>
                                 </div>
                                 <p className="text-gray-600 mb-6">
-                                    Memorable experiences that bring communities together.
-                                    From corporate events to creative gatherings, we make moments matter.
+                                    {t('services.events.description')}
                                 </p>
                                 <div className="space-y-4">
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Corporate Events</h3>
-                                            <p className="text-sm text-gray-600">Product launches, conferences, and team building experiences</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.events.features.corporate.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.events.features.corporate.description')}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Community Gatherings</h3>
-                                            <p className="text-sm text-gray-600">Workshops, meetups, and collaborative sessions</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.events.features.community.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.events.features.community.description')}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Virtual Experiences</h3>
-                                            <p className="text-sm text-gray-600">Online events, webinars, and digital conferences</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.events.features.virtual.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.events.features.virtual.description')}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Experience Design</h3>
-                                            <p className="text-sm text-gray-600">Journey mapping and touchpoint optimization</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.events.features.experience.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.events.features.experience.description')}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -175,39 +169,38 @@ export default function Services() {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                         </svg>
                                     </div>
-                                    <h2 className="text-2xl font-bold text-gray-900">Documentation & Workflow</h2>
+                                    <h2 className="text-2xl font-bold text-gray-900">{t('services.documentation.title')}</h2>
                                 </div>
                                 <p className="text-gray-600 mb-6">
-                                    Clear documentation and seamless handoffs that ensure your project&apos;s success
-                                    long after we&apos;ve delivered it.
+                                    {t('services.documentation.description')}
                                 </p>
                                 <div className="space-y-4">
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Technical Documentation</h3>
-                                            <p className="text-sm text-gray-600">API docs, system architecture, and deployment guides</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.documentation.features.technical.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.documentation.features.technical.description')}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Process Optimization</h3>
-                                            <p className="text-sm text-gray-600">Workflow design and team collaboration strategies</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.documentation.features.process.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.documentation.features.process.description')}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Knowledge Transfer</h3>
-                                            <p className="text-sm text-gray-600">Training sessions and handoff documentation</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.documentation.features.knowledge.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.documentation.features.knowledge.description')}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start space-x-3">
                                         <div className="w-2 h-2 bg-gray-800 rounded-full mt-2 flex-shrink-0"></div>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">Maintenance Plans</h3>
-                                            <p className="text-sm text-gray-600">Ongoing support and evolution strategies</p>
+                                            <h3 className="font-semibold text-gray-900">{t('services.documentation.features.maintenance.title')}</h3>
+                                            <p className="text-sm text-gray-600">{t('services.documentation.features.maintenance.description')}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -222,11 +215,10 @@ export default function Services() {
                     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                                Our Process
+                                {t('services.process.title')}
                             </h2>
                             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                                Every project follows our proven methodology, designed for transparency,
-                                collaboration, and exceptional results.
+                                {t('services.process.subtitle')}
                             </p>
                         </div>
 
@@ -235,9 +227,9 @@ export default function Services() {
                                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                                     <span className="text-xl font-bold text-white">1</span>
                                 </div>
-                                <h3 className="text-lg font-semibold text-gray-900 mb-2">Discovery</h3>
+                                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('services.process.steps.discovery.title')}</h3>
                                 <p className="text-gray-600 text-sm">
-                                    Understanding your vision, goals, and constraints through deep conversation and research.
+                                    {t('services.process.steps.discovery.description')}
                                 </p>
                             </div>
 
@@ -245,9 +237,9 @@ export default function Services() {
                                 <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                                     <span className="text-xl font-bold text-white">2</span>
                                 </div>
-                                <h3 className="text-lg font-semibold text-gray-900 mb-2">Strategy</h3>
+                                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('services.process.steps.strategy.title')}</h3>
                                 <p className="text-gray-600 text-sm">
-                                    Crafting a roadmap that aligns technology choices with business objectives.
+                                    {t('services.process.steps.strategy.description')}
                                 </p>
                             </div>
 
@@ -255,9 +247,9 @@ export default function Services() {
                                 <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
                                     <span className="text-xl font-bold text-white">3</span>
                                 </div>
-                                <h3 className="text-lg font-semibold text-gray-900 mb-2">Creation</h3>
+                                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('services.process.steps.creation.title')}</h3>
                                 <p className="text-gray-600 text-sm">
-                                    Building with agile methodology, constant feedback, and iterative improvement.
+                                    {t('services.process.steps.creation.description')}
                                 </p>
                             </div>
 
@@ -265,9 +257,9 @@ export default function Services() {
                                 <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <span className="text-xl font-bold text-white">4</span>
                                 </div>
-                                <h3 className="text-lg font-semibold text-gray-900 mb-2">Evolution</h3>
+                                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('services.process.steps.evolution.title')}</h3>
                                 <p className="text-gray-600 text-sm">
-                                    Launching, monitoring, and continuously improving based on real-world feedback.
+                                    {t('services.process.steps.evolution.description')}
                                 </p>
                             </div>
                         </div>
@@ -278,16 +270,16 @@ export default function Services() {
                 <section className="py-20 bg-gradient-to-r from-primary to-secondary">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
-                            Ready to start your project?
+                            {t('services.cta.title')}
                         </h2>
                         <p className="text-xl text-black mb-8 dark:text-white">
-                            Let&apos;s discuss how we can bring your vision to life with our comprehensive services.
+                            {t('services.cta.subtitle')}
                         </p>
                         <a
                             href="/contact"
                             className="inline-block bg-white text-primary px-8 py-4 rounded-full hover:bg-gray-100 transition-colors duration-300 font-semibold shadow-lg"
                         >
-                            Start a Conversation
+                            {t('services.cta.button')}
                         </a>
                     </div>
                 </section>

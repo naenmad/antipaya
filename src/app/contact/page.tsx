@@ -2,8 +2,10 @@
 
 import Navigation from '@/components/Navigation';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Contact() {
+    const { t } = useLanguage();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -52,11 +54,10 @@ export default function Contact() {
                 <section className="bg-gradient-to-br from-white via-gray-50 to-pink-50 py-20">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                            Let&apos;s <span className="text-primary">Connect</span>
+                            {t('contact.title')}
                         </h1>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Ready to turn your vision into reality? We&apos;d love to hear about your project
-                            and explore how we can build something extraordinary together.
+                            {t('contact.subtitle')}
                         </p>
                     </div>
                 </section>
@@ -73,8 +74,8 @@ export default function Contact() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">Email Us</h3>
-                                <p className="text-gray-600 mb-4">For detailed project discussions and proposals</p>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('contact.methods.email.title')}</h3>
+                                <p className="text-gray-600 mb-4">{t('contact.methods.email.description')}</p>
                                 <a
                                     href="mailto:hello@antipaya.com"
                                     className="text-primary hover:text-secondary font-medium transition-colors duration-300"
@@ -90,8 +91,8 @@ export default function Contact() {
                                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
                                     </svg>
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">WhatsApp</h3>
-                                <p className="text-gray-600 mb-4">Quick questions and immediate responses</p>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('contact.methods.whatsapp.title')}</h3>
+                                <p className="text-gray-600 mb-4">{t('contact.methods.whatsapp.description')}</p>
                                 <a
                                     href="https://wa.me/6285183058315"
                                     target="_blank"
@@ -110,8 +111,8 @@ export default function Contact() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                     </svg>
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">Follow Us</h3>
-                                <p className="text-gray-600 mb-4">Stay updated with our latest work and insights</p>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">{t('contact.methods.social.title')}</h3>
+                                <p className="text-gray-600 mb-4">{t('contact.methods.social.description')}</p>
                                 <div className="flex justify-center space-x-4">
                                     <a href="#" className="text-accent hover:text-primary transition-colors duration-300">
                                         <span className="sr-only">Twitter</span>
@@ -142,10 +143,10 @@ export default function Contact() {
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-                                Start Your Project
+                                {t('contact.form.title')}
                             </h2>
                             <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--muted)' }}>
-                                Tell us about your project and we&apos;ll get back to you within 24 hours with a detailed proposal.
+                                {t('contact.form.subtitle')}
                             </p>
                         </div>
 
@@ -155,7 +156,7 @@ export default function Contact() {
                                 {/* Name */}
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                                        Full Name *
+                                        {t('contact.form.fields.name.label')}
                                     </label>
                                     <input
                                         type="text"
@@ -166,14 +167,14 @@ export default function Contact() {
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-300"
                                         style={{ backgroundColor: 'var(--background)', borderColor: 'var(--border)', color: 'var(--foreground)' }}
-                                        placeholder="Your full name"
+                                        placeholder={t('contact.form.fields.name.placeholder')}
                                     />
                                 </div>
 
                                 {/* Email */}
                                 <div>
                                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                                        Email Address *
+                                        {t('contact.form.fields.email.label')}
                                     </label>
                                     <input
                                         type="email"
@@ -183,14 +184,14 @@ export default function Contact() {
                                         value={formData.email}
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-300"
-                                        placeholder="your.email@company.com"
+                                        placeholder={t('contact.form.fields.email.placeholder')}
                                     />
                                 </div>
 
                                 {/* Company */}
                                 <div>
                                     <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                                        Company/Organization
+                                        {t('contact.form.fields.company.label')}
                                     </label>
                                     <input
                                         type="text"
@@ -199,14 +200,14 @@ export default function Contact() {
                                         value={formData.company}
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-300"
-                                        placeholder="Your company name"
+                                        placeholder={t('contact.form.fields.company.placeholder')}
                                     />
                                 </div>
 
                                 {/* Project Type */}
                                 <div>
                                     <label htmlFor="project" className="block text-sm font-medium text-gray-700 mb-2">
-                                        Project Type *
+                                        {t('contact.form.fields.project.label')}
                                     </label>
                                     <select
                                         id="project"
@@ -216,21 +217,21 @@ export default function Contact() {
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-300"
                                     >
-                                        <option value="">Select project type</option>
-                                        <option value="web-development">Web Development</option>
-                                        <option value="mobile-app">Mobile App</option>
-                                        <option value="api-backend">API/Backend</option>
-                                        <option value="branding">Branding & Design</option>
-                                        <option value="event-planning">Event Planning</option>
-                                        <option value="consultation">Consultation</option>
-                                        <option value="other">Other</option>
+                                        <option value="">{t('contact.form.fields.project.placeholder')}</option>
+                                        <option value="web-development">{t('contact.form.fields.project.options.web')}</option>
+                                        <option value="mobile-app">{t('contact.form.fields.project.options.mobile')}</option>
+                                        <option value="api-backend">{t('contact.form.fields.project.options.api')}</option>
+                                        <option value="branding">{t('contact.form.fields.project.options.branding')}</option>
+                                        <option value="event-planning">{t('contact.form.fields.project.options.events')}</option>
+                                        <option value="consultation">{t('contact.form.fields.project.options.consultation')}</option>
+                                        <option value="other">{t('contact.form.fields.project.options.other')}</option>
                                     </select>
                                 </div>
 
                                 {/* Budget */}
                                 <div>
                                     <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
-                                        Project Budget
+                                        {t('contact.form.fields.budget.label')}
                                     </label>
                                     <select
                                         id="budget"
@@ -239,20 +240,20 @@ export default function Contact() {
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-300"
                                     >
-                                        <option value="">Select budget range</option>
-                                        <option value="under-10k">Under $10,000</option>
-                                        <option value="10k-25k">$10,000 - $25,000</option>
-                                        <option value="25k-50k">$25,000 - $50,000</option>
-                                        <option value="50k-100k">$50,000 - $100,000</option>
-                                        <option value="over-100k">Over $100,000</option>
-                                        <option value="discuss">Let&apos;s discuss</option>
+                                        <option value="">{t('contact.form.fields.budget.placeholder')}</option>
+                                        <option value="under-10k">{t('contact.form.fields.budget.options.under10k')}</option>
+                                        <option value="10k-25k">{t('contact.form.fields.budget.options.10k25k')}</option>
+                                        <option value="25k-50k">{t('contact.form.fields.budget.options.25k50k')}</option>
+                                        <option value="50k-100k">{t('contact.form.fields.budget.options.50k100k')}</option>
+                                        <option value="over-100k">{t('contact.form.fields.budget.options.over100k')}</option>
+                                        <option value="discuss">{t('contact.form.fields.budget.options.discuss')}</option>
                                     </select>
                                 </div>
 
                                 {/* Timeline */}
                                 <div>
                                     <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
-                                        Timeline
+                                        {t('contact.form.fields.timeline.label')}
                                     </label>
                                     <select
                                         id="timeline"
@@ -261,12 +262,12 @@ export default function Contact() {
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-300"
                                     >
-                                        <option value="">Select timeline</option>
-                                        <option value="asap">ASAP</option>
-                                        <option value="1-2-months">1-2 months</option>
-                                        <option value="3-6-months">3-6 months</option>
-                                        <option value="6-12-months">6-12 months</option>
-                                        <option value="flexible">Flexible</option>
+                                        <option value="">{t('contact.form.fields.timeline.placeholder')}</option>
+                                        <option value="asap">{t('contact.form.fields.timeline.options.asap')}</option>
+                                        <option value="1-2-months">{t('contact.form.fields.timeline.options.1to2months')}</option>
+                                        <option value="3-6-months">{t('contact.form.fields.timeline.options.3to6months')}</option>
+                                        <option value="6-12-months">{t('contact.form.fields.timeline.options.6to12months')}</option>
+                                        <option value="flexible">{t('contact.form.fields.timeline.options.flexible')}</option>
                                     </select>
                                 </div>
                             </div>
@@ -274,7 +275,7 @@ export default function Contact() {
                             {/* Message */}
                             <div className="mt-6">
                                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                                    Project Details *
+                                    {t('contact.form.fields.message.label')}
                                 </label>
                                 <textarea
                                     id="message"
@@ -284,7 +285,7 @@ export default function Contact() {
                                     value={formData.message}
                                     onChange={handleChange}
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-300"
-                                    placeholder="Tell us about your project, goals, and any specific requirements..."
+                                    placeholder={t('contact.form.fields.message.placeholder')}
                                 ></textarea>
                             </div>
 
@@ -295,7 +296,7 @@ export default function Contact() {
                                     disabled={isSubmitting}
                                     className="bg-primary text-white px-8 py-4 rounded-full hover:bg-secondary transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                                 >
-                                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                                    {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
                                 </button>
                             </div>
 
@@ -314,48 +315,44 @@ export default function Contact() {
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-                                Frequently Asked Questions
+                                {t('contact.faq.title')}
                             </h2>
                         </div>
 
                         <div className="space-y-6">
                             <div className="faq-item rounded-lg p-6">
                                 <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--foreground)' }}>
-                                    How long does a typical project take?
+                                    {t('contact.faq.q1.question')}
                                 </h3>
                                 <p style={{ color: 'var(--muted)' }}>
-                                    Project timelines vary based on scope and complexity. Simple websites might take 4-6 weeks,
-                                    while complex applications can take 3-6 months. We&apos;ll provide a detailed timeline during our initial consultation.
+                                    {t('contact.faq.q1.answer')}
                                 </p>
                             </div>
 
                             <div className="faq-item rounded-lg p-6">
                                 <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--foreground)' }}>
-                                    Do you work with startups and small businesses?
+                                    {t('contact.faq.q2.question')}
                                 </h3>
                                 <p style={{ color: 'var(--muted)' }}>
-                                    Absolutely! We work with organizations of all sizes, from early-stage startups to established enterprises.
-                                    We&apos;re passionate about helping businesses grow through technology.
+                                    {t('contact.faq.q2.answer')}
                                 </p>
                             </div>
 
                             <div className="faq-item rounded-lg p-6">
                                 <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--foreground)' }}>
-                                    What&apos;s your development process like?
+                                    {t('contact.faq.q3.question')}
                                 </h3>
                                 <p style={{ color: 'var(--muted)' }}>
-                                    We follow an agile methodology with regular check-ins and iterations. You&apos;ll be involved throughout
-                                    the process with weekly updates, demos, and feedback sessions to ensure we&apos;re building exactly what you need.
+                                    {t('contact.faq.q3.answer')}
                                 </p>
                             </div>
 
                             <div className="faq-item rounded-lg p-6">
                                 <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--foreground)' }}>
-                                    Do you provide ongoing support after launch?
+                                    {t('contact.faq.q4.question')}
                                 </h3>
                                 <p style={{ color: 'var(--muted)' }}>
-                                    Yes! We offer various support packages including maintenance, updates, hosting, and feature enhancements.
-                                    We believe in long-term partnerships with our clients.
+                                    {t('contact.faq.q4.answer')}
                                 </p>
                             </div>
                         </div>

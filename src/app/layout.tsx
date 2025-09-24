@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ProgressBar from "@/components/ProgressBar";
 import ScrollProgress from "@/components/ScrollProgress";
 import FloatingActions from "@/components/FloatingActions";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -71,15 +72,17 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased transition-colors duration-300" style={{ backgroundColor: 'var(--background)', color: 'var(--foreground)' }}>
-        <ScrollProgress />
-        <ProgressBar />
-        <FloatingActions />
-        <div className="min-h-screen flex flex-col">
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <LanguageProvider>
+          <ScrollProgress />
+          <ProgressBar />
+          <FloatingActions />
+          <div className="min-h-screen flex flex-col">
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </LanguageProvider>
         {/* Skip to main content for accessibility */}
         <a
           href="#main-content"

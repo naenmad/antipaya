@@ -1,10 +1,7 @@
-import { Metadata } from 'next';
-import Navigation from '@/components/Navigation';
+'use client';
 
-export const metadata: Metadata = {
-    title: 'Testimonials',
-    description: 'What our clients say about working with Antipaya. Real stories from real projects that showcase our commitment to excellence.',
-};
+import Navigation from '@/components/Navigation';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const testimonials = [
     {
@@ -64,6 +61,8 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+    const { t } = useLanguage();
+
     return (
         <>
             <Navigation />
@@ -72,11 +71,10 @@ export default function Testimonials() {
                 <section className="bg-gradient-to-br from-white via-gray-50 to-pink-50 py-20">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                            Client <span className="text-primary">Testimonials</span>
+                            {t('testimonials.title')}
                         </h1>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Don&apos;t just take our word for it. Here&apos;s what our clients say about working with Antipaya
-                            and the impact our solutions have made on their businesses.
+                            {t('testimonials.subtitle')}
                         </p>
                     </div>
                 </section>
@@ -124,7 +122,7 @@ export default function Testimonials() {
                                             </div>
                                         </div>
                                         <div className="mt-3 text-xs text-gray-500 bg-gray-50 px-3 py-1 rounded-full inline-block">
-                                            Project: {testimonial.project}
+                                            {t('testimonials.project')} {testimonial.project}
                                         </div>
                                     </div>
                                 </div>
@@ -138,33 +136,33 @@ export default function Testimonials() {
                     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                                Client Satisfaction
+                                {t('testimonials.stats.title')}
                             </h2>
                             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                                Our commitment to excellence is reflected in these numbers
+                                {t('testimonials.stats.subtitle')}
                             </p>
                         </div>
 
                         <div className="grid md:grid-cols-4 gap-8">
                             <div className="text-center">
                                 <div className="text-4xl lg:text-5xl font-bold text-primary mb-2">4.9/5</div>
-                                <div className="text-gray-700 font-medium">Average Rating</div>
-                                <div className="text-sm text-gray-500 mt-1">Based on 25+ reviews</div>
+                                <div className="text-gray-700 font-medium">{t('testimonials.stats.rating.title')}</div>
+                                <div className="text-sm text-gray-500 mt-1">{t('testimonials.stats.rating.subtitle')}</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-4xl lg:text-5xl font-bold text-secondary mb-2">98%</div>
-                                <div className="text-gray-700 font-medium">Client Retention</div>
-                                <div className="text-sm text-gray-500 mt-1">Long-term partnerships</div>
+                                <div className="text-gray-700 font-medium">{t('testimonials.stats.retention.title')}</div>
+                                <div className="text-sm text-gray-500 mt-1">{t('testimonials.stats.retention.subtitle')}</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-4xl lg:text-5xl font-bold text-accent mb-2">100%</div>
-                                <div className="text-gray-700 font-medium">On-Time Delivery</div>
-                                <div className="text-sm text-gray-500 mt-1">Every project, every time</div>
+                                <div className="text-gray-700 font-medium">{t('testimonials.stats.delivery.title')}</div>
+                                <div className="text-sm text-gray-500 mt-1">{t('testimonials.stats.delivery.subtitle')}</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-4xl lg:text-5xl font-bold text-gray-800 mb-2">85%</div>
-                                <div className="text-gray-700 font-medium">Referral Rate</div>
-                                <div className="text-sm text-gray-500 mt-1">Clients recommend us</div>
+                                <div className="text-gray-700 font-medium">{t('testimonials.stats.referral.title')}</div>
+                                <div className="text-sm text-gray-500 mt-1">{t('testimonials.stats.referral.subtitle')}</div>
                             </div>
                         </div>
                     </div>
@@ -177,12 +175,10 @@ export default function Testimonials() {
                             <div className="grid lg:grid-cols-2 gap-8 items-center">
                                 <div>
                                     <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                                        From Idea to Impact
+                                        {t('testimonials.caseStudy.title')}
                                     </h2>
                                     <p className="text-gray-600 mb-6">
-                                        &ldquo;When we started working with Antipaya, we had a vision but no clear path.
-                                        They didn&apos;t just build our platform—they helped us understand our own business better.
-                                        Today, we&apos;re processing 10x more transactions with the same team size.&rdquo;
+                                        {t('testimonials.caseStudy.quote')}
                                     </p>
                                     <div className="flex items-center space-x-4">
                                         <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
@@ -198,15 +194,15 @@ export default function Testimonials() {
                                 <div className="space-y-6">
                                     <div className="bg-white rounded-lg p-4 shadow-sm">
                                         <div className="text-2xl font-bold text-primary mb-1">10x</div>
-                                        <div className="text-sm text-gray-600">Transaction Volume Increase</div>
+                                        <div className="text-sm text-gray-600">{t('testimonials.caseStudy.metrics.volume')}</div>
                                     </div>
                                     <div className="bg-white rounded-lg p-4 shadow-sm">
                                         <div className="text-2xl font-bold text-secondary mb-1">50%</div>
-                                        <div className="text-sm text-gray-600">Faster Processing Time</div>
+                                        <div className="text-sm text-gray-600">{t('testimonials.caseStudy.metrics.speed')}</div>
                                     </div>
                                     <div className="bg-white rounded-lg p-4 shadow-sm">
                                         <div className="text-2xl font-bold text-accent mb-1">99.9%</div>
-                                        <div className="text-sm text-gray-600">System Uptime</div>
+                                        <div className="text-sm text-gray-600">{t('testimonials.caseStudy.metrics.uptime')}</div>
                                     </div>
                                 </div>
                             </div>
@@ -218,16 +214,16 @@ export default function Testimonials() {
                 <section className="py-20 bg-gradient-to-r from-primary to-secondary">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
-                            Ready to become our next success story?
+                            {t('testimonials.cta.title')}
                         </h2>
                         <p className="text-xl text-black mb-8 dark:text-white">
-                            Join the growing list of satisfied clients who chose Antipaya for their digital transformation.
+                            {t('testimonials.cta.subtitle')}
                         </p>
                         <a
                             href="/contact"
                             className="inline-block bg-white text-primary px-8 py-4 rounded-full hover:bg-gray-100 transition-colors duration-300 font-semibold shadow-lg"
                         >
-                            Start Your Journey
+                            {t('testimonials.cta.button')}
                         </a>
                     </div>
                 </section>

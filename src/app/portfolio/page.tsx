@@ -2,6 +2,7 @@
 
 import Navigation from '@/components/Navigation';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // This would normally come from a database or CMS
 const projects = [
@@ -112,13 +113,14 @@ const projects = [
 ];
 
 export default function Portfolio() {
+    const { t } = useLanguage();
     const [selectedCategory, setSelectedCategory] = useState('all');
 
     const categories = [
-        { id: 'all', label: 'All Projects' },
-        { id: 'tech', label: 'Technology' },
-        { id: 'branding', label: 'Branding' },
-        { id: 'event', label: 'Events' }
+        { id: 'all', label: t('portfolio.filter.all') },
+        { id: 'tech', label: t('portfolio.filter.technology') },
+        { id: 'branding', label: t('portfolio.filter.branding') },
+        { id: 'event', label: t('portfolio.filter.events') }
     ];
 
     const filteredProjects = selectedCategory === 'all'
@@ -133,11 +135,10 @@ export default function Portfolio() {
                 <section className="bg-gradient-to-br from-white via-gray-50 to-pink-50 py-20">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                            Our <span className="text-primary">Portfolio</span>
+                            {t('portfolio.title')}
                         </h1>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            A showcase of our best work across technology, branding, and experience design.
-                            Each project represents our commitment to building with soul and scaling with clarity.
+                            {t('portfolio.subtitle')}
                         </p>
                     </div>
                 </section>
@@ -280,29 +281,29 @@ export default function Portfolio() {
                     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                                Project Impact
+                                {t('portfolio.stats.title')}
                             </h2>
                             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                                Every project we deliver creates lasting value for our clients and their communities.
+                                {t('portfolio.stats.subtitle')}
                             </p>
                         </div>
 
                         <div className="grid md:grid-cols-4 gap-8">
                             <div className="text-center">
                                 <div className="text-4xl lg:text-5xl font-bold text-primary mb-2">50+</div>
-                                <div className="text-gray-700 font-medium">Projects Delivered</div>
+                                <div className="text-gray-700 font-medium">{t('portfolio.stats.projects')}</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-4xl lg:text-5xl font-bold text-secondary mb-2">25+</div>
-                                <div className="text-gray-700 font-medium">Happy Clients</div>
+                                <div className="text-gray-700 font-medium">{t('portfolio.stats.clients')}</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-4xl lg:text-5xl font-bold text-accent mb-2">100%</div>
-                                <div className="text-gray-700 font-medium">On-Time Delivery</div>
+                                <div className="text-gray-700 font-medium">{t('portfolio.stats.delivery')}</div>
                             </div>
                             <div className="text-center">
                                 <div className="text-4xl lg:text-5xl font-bold text-gray-800 mb-2">24/7</div>
-                                <div className="text-gray-700 font-medium">Support Available</div>
+                                <div className="text-gray-700 font-medium">{t('portfolio.stats.support')}</div>
                             </div>
                         </div>
                     </div>
@@ -312,16 +313,16 @@ export default function Portfolio() {
                 <section className="py-20 bg-gradient-to-r from-primary to-secondary">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
-                            Ready to create your success story?
+                            {t('portfolio.cta.title')}
                         </h2>
                         <p className="text-xl text-black mb-8 dark:text-white">
-                            Let&apos;s build something remarkable together. Your project could be our next showcase.
+                            {t('portfolio.cta.subtitle')}
                         </p>
                         <a
                             href="/contact"
                             className="inline-block bg-white text-primary px-8 py-4 rounded-full hover:bg-gray-100 transition-colors duration-300 font-semibold shadow-lg"
                         >
-                            Start Your Project
+                            {t('portfolio.cta.button')}
                         </a>
                     </div>
                 </section>

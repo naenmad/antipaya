@@ -3,19 +3,31 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import DarkModeToggle from './DarkModeToggle';
+import LanguageToggle from './LanguageToggle';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Navigation = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { t } = useLanguage();
+    const pathname = usePathname();
 
     const navItems = [
-        { href: '/', label: 'Home' },
-        { href: '/about', label: 'About' },
-        { href: '/services', label: 'Services' },
-        { href: '/portfolio', label: 'Portfolio' },
-        { href: '/testimonials', label: 'Testimonials' },
-        { href: '/contact', label: 'Contact' },
+        { href: '/', label: t('nav.home') },
+        { href: '/about', label: t('nav.about') },
+        { href: '/services', label: t('nav.services') },
+        { href: '/portfolio', label: t('nav.portfolio') },
+        { href: '/testimonials', label: t('nav.testimonials') },
+        { href: '/contact', label: t('nav.contact') },
     ];
+
+    const isActive = (href: string) => {
+        if (href === '/') {
+            return pathname === '/';
+        }
+        return pathname.startsWith(href);
+    };
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
@@ -44,7 +56,13 @@ const Navigation = () => {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors duration-200 font-medium"
+                                className={`relative transition-colors duration-200 font-medium ${isActive(item.href)
+                                        ? 'text-primary dark:text-primary'
+                                        : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary'
+                                    } ${isActive(item.href)
+                                        ? 'after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-0.5 after:bg-primary after:rounded-full'
+                                        : ''
+                                    }`}
                             >
                                 {item.label}
                             </Link>
@@ -53,14 +71,20 @@ const Navigation = () => {
                             href="/contact"
                             className="bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary transition-colors duration-200 font-medium"
                         >
-                            Get Started
+                            {t('nav.contact')}
                         </Link>
-                        <DarkModeToggle />
+                        <div className="flex items-center space-x-4 ml-4">
+                            <LanguageToggle />
+                            <DarkModeToggle />
+                        </div>
                     </div>
 
                     {/* Mobile menu button */}
                     <div className="md:hidden flex items-center space-x-3">
-                        <DarkModeToggle />
+                        <div className="flex items-center space-x-2">
+                            <LanguageToggle />
+                            <DarkModeToggle />
+                        </div>
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                             className="text-gray-700 dark:text-gray-300 hover:text-primary focus:outline-none focus:text-primary"
@@ -92,7 +116,10 @@ const Navigation = () => {
                                 <Link
                                     key={item.href}
                                     href={item.href}
-                                    className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md font-medium"
+                                    className={`block px-3 py-2 rounded-md font-medium transition-colors duration-200 ${isActive(item.href)
+                                            ? 'text-primary bg-primary/10 dark:bg-primary/20'
+                                            : 'text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800'
+                                        }`}
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     {item.label}

@@ -2,9 +2,11 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Footer() {
     const currentYear = new Date().getFullYear()
+    const { t } = useLanguage()
 
     return (
         <footer className="bg-gray-900 text-white">
@@ -23,8 +25,8 @@ export default function Footer() {
                             <h3 className="text-2xl font-bold text-primary">Antipaya</h3>
                         </div>
                         <p className="text-gray-300 text-sm leading-relaxed">
-                            Build with soul. Scale with clarity.<br />
-                            Solusi modular, kreatif, dan profesional untuk kebutuhan digital Anda.
+                            {t('footer.tagline')}<br />
+                            {t('footer.description')}
                         </p>
                         <div className="flex space-x-4">
                             <a
@@ -68,31 +70,31 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div className="space-y-4">
-                        <h4 className="text-lg font-semibold">Quick Links</h4>
+                        <h4 className="text-lg font-semibold">{t('footer.quickLinks')}</h4>
                         <ul className="space-y-2">
                             <li>
                                 <Link href="/" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                                    Home
+                                    {t('nav.home')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/about" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                                    About Us
+                                    {t('nav.about')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/services" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                                    Services
+                                    {t('nav.services')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/portfolio" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                                    Portfolio
+                                    {t('nav.portfolio')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/testimonials" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                                    Testimonials
+                                    {t('nav.testimonials')}
                                 </Link>
                             </li>
                             <li>
@@ -105,19 +107,19 @@ export default function Footer() {
 
                     {/* Services */}
                     <div className="space-y-4">
-                        <h4 className="text-lg font-semibold">Services</h4>
+                        <h4 className="text-lg font-semibold">{t('footer.services')}</h4>
                         <ul className="space-y-2">
-                            <li className="text-gray-300 text-sm">Software Development</li>
-                            <li className="text-gray-300 text-sm">Mobile App Development</li>
-                            <li className="text-gray-300 text-sm">Branding & Design</li>
-                            <li className="text-gray-300 text-sm">Event Planning</li>
-                            <li className="text-gray-300 text-sm">Documentation</li>
+                            <li className="text-gray-300 text-sm">{t('footer.softwareDev')}</li>
+                            <li className="text-gray-300 text-sm">{t('footer.mobileDev')}</li>
+                            <li className="text-gray-300 text-sm">{t('footer.branding')}</li>
+                            <li className="text-gray-300 text-sm">{t('footer.eventPlanning')}</li>
+                            <li className="text-gray-300 text-sm">{t('footer.documentation')}</li>
                         </ul>
                     </div>
 
                     {/* Contact Info */}
                     <div className="space-y-4">
-                        <h4 className="text-lg font-semibold">Contact</h4>
+                        <h4 className="text-lg font-semibold">{t('footer.contact')}</h4>
                         <div className="space-y-2">
                             <div className="flex items-center space-x-2">
                                 <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
@@ -146,17 +148,17 @@ export default function Footer() {
                 <div className="border-t border-gray-800 mt-8 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <div className="text-gray-400 text-sm">
-                            © {currentYear} Antipaya. All rights reserved.
+                            © {currentYear} Antipaya. {t('footer.rights')}
                         </div>
                         <div className="flex space-x-6">
                             <Link href="/privacy" className="text-gray-400 hover:text-primary text-sm transition-colors duration-200">
-                                Privacy Policy
+                                {t('footer.privacy')}
                             </Link>
                             <Link href="/terms" className="text-gray-400 hover:text-primary text-sm transition-colors duration-200">
-                                Terms of Service
+                                {t('footer.terms')}
                             </Link>
                             <Link href="/sitemap" className="text-gray-400 hover:text-primary text-sm transition-colors duration-200">
-                                Sitemap
+                                {t('footer.sitemap')}
                             </Link>
                         </div>
                     </div>
