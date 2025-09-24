@@ -217,10 +217,10 @@ export default function Testimonials() {
                 {/* CTA */}
                 <section className="py-20 bg-gradient-to-r from-primary to-secondary">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+                        <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
                             Ready to become our next success story?
                         </h2>
-                        <p className="text-xl text-white/90 mb-8">
+                        <p className="text-xl text-black mb-8 dark:text-white">
                             Join the growing list of satisfied clients who chose Antipaya for their digital transformation.
                         </p>
                         <a

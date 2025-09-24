@@ -64,7 +64,7 @@ export default function About() {
                             </div>
 
                             <div className="relative">
-                                <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8">
+                                <div className="card-professional">
                                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
                                     <p className="text-gray-700 text-lg leading-relaxed">
                                         To empower organizations and individuals through modular, scalable,
@@ -160,33 +160,39 @@ export default function About() {
                         </div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <div className="text-center">
-                                <div className="w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full mx-auto mb-6 flex items-center justify-center">
-                                    <span className="text-2xl font-bold text-white">Team</span>
+                            <div className="card-professional text-center">
+                                <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-full mx-auto mb-6 flex items-center justify-center">
+                                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                    </svg>
                                 </div>
-                                <h3 className="text-xl font-semibold text-gray-900 mb-2">Development Team</h3>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">Development Team</h3>
                                 <p className="text-gray-600">
                                     Full-stack developers, mobile specialists, and DevOps engineers
                                     passionate about clean code and scalable solutions.
                                 </p>
                             </div>
 
-                            <div className="text-center">
-                                <div className="w-32 h-32 bg-gradient-to-br from-secondary to-accent rounded-full mx-auto mb-6 flex items-center justify-center">
-                                    <span className="text-2xl font-bold text-white">Design</span>
+                            <div className="card-secondary text-center">
+                                <div className="w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full mx-auto mb-6 flex items-center justify-center">
+                                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
+                                    </svg>
                                 </div>
-                                <h3 className="text-xl font-semibold text-gray-900 mb-2">Design Team</h3>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">Design Team</h3>
                                 <p className="text-gray-600">
                                     UX/UI designers and brand strategists who believe that
                                     beautiful design is inseparable from meaningful function.
                                 </p>
                             </div>
 
-                            <div className="text-center">
-                                <div className="w-32 h-32 bg-gradient-to-br from-accent to-primary rounded-full mx-auto mb-6 flex items-center justify-center">
-                                    <span className="text-2xl font-bold text-white">Strategy</span>
+                            <div className="card-accent text-center">
+                                <div className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-full mx-auto mb-6 flex items-center justify-center">
+                                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                    </svg>
                                 </div>
-                                <h3 className="text-xl font-semibold text-gray-900 mb-2">Strategy Team</h3>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">Strategy Team</h3>
                                 <p className="text-gray-600">
                                     Business analysts and project managers who ensure every solution
                                     aligns with your goals and drives real results.
@@ -199,10 +205,10 @@ export default function About() {
                 {/* CTA */}
                 <section className="py-20 bg-gradient-to-r from-primary to-secondary">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+                        <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
                             Ready to work with us?
                         </h2>
-                        <p className="text-xl text-white/90 mb-8">
+                        <p className="text-xl text-black mb-8 dark:text-white">
                             Let&apos;s build something extraordinary together. Every great project starts with a conversation.
                         </p>
                         <a

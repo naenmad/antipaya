@@ -15,14 +15,17 @@
   --border: #e5e7eb;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--black);
-    --foreground: var(--white);
-    --muted: #9ca3af;
-    --border: #374151;
-  }
+.dark {
+  /* Use Antipaya brand black/white for dark mode */
+  --background: var(--black);
+  --foreground: var(--white);
+  --muted: #9ca3af;
+  --border: #374151;
 }
+
+/* Remove automatic prefers-color-scheme override so dark mode is only toggled
+   via the .dark class (controlled by the DarkModeToggle component). This
+   ensures explicit control using --black and --white defined above. */
 
 * {
   box-sizing: border-box;
@@ -83,6 +86,102 @@ html {
 
 .border-accent {
   border-color: var(--accent);
+}
+
+/* Professional card styling inspired by WhatsApp card design */
+.card-professional {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(251, 88, 1, 0.1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background: linear-gradient(135deg, rgba(251, 88, 1, 0.05) 0%, rgba(251, 88, 1, 0.1) 100%);
+  transition: all 0.3s ease;
+}
+
+.card-professional:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card-whatsapp {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(37, 211, 102, 0.1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.05) 0%, rgba(37, 211, 102, 0.1) 100%);
+  transition: all 0.3s ease;
+}
+
+.card-whatsapp:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card-secondary {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 147, 144, 0.1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background: linear-gradient(135deg, rgba(255, 147, 144, 0.05) 0%, rgba(255, 147, 144, 0.1) 100%);
+  transition: all 0.3s ease;
+}
+
+.card-secondary:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card-accent {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(252, 175, 8, 0.1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background: linear-gradient(135deg, rgba(252, 175, 8, 0.05) 0%, rgba(252, 175, 8, 0.1) 100%);
+  transition: all 0.3s ease;
+}
+
+.card-accent:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card-neutral {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(107, 114, 128, 0.2);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background: linear-gradient(135deg, rgba(249, 250, 251, 0.8) 0%, rgba(243, 244, 246, 0.9) 100%);
+  transition: all 0.3s ease;
+}
+
+.card-neutral:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.icon-circle-neutral {
+  background-color: #374151;
+}
+
+.icon-circle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+}
+
+.icon-circle-primary {
+  background-color: var(--primary);
+}
+
+.icon-circle-secondary {
+  background-color: var(--secondary);
+}
+
+.icon-circle-accent {
+  background-color: var(--accent);
+}
+
+.icon-circle-whatsapp {
+  background-color: #25D366;
 }
 
 /* Custom animations and transitions */
@@ -235,4 +334,132 @@ html {
     background: white !important;
     color: black !important;
   }
+}
+
+/* Dark-mode overrides for common Tailwind utilities
+   These map commonly used bg/text/border classes to the --background/--foreground
+   variables when the .dark class is present on the root element. This helps make
+   the dark toggle more comprehensive without changing all markup to use CSS vars.
+*/
+.dark .bg-white,
+.dark .bg-gray-50,
+.dark .bg-gray-100,
+.dark .bg-gray-200 {
+  background-color: var(--background) !important;
+}
+
+.dark .text-gray-900,
+.dark .text-gray-800,
+.dark .text-gray-700,
+.dark .text-gray-600 {
+  color: var(--foreground) !important;
+}
+
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-gray-300 {
+  border-color: var(--border) !important;
+}
+
+.dark .bg-white\/90 {
+  background-color: rgba(1, 2, 3, 0.9) !important;
+  /* subtle translucent dark */
+}
+
+/* Enhanced color consistency using Antipaya brand colors */
+.bg-white {
+  background-color: var(--white) !important;
+}
+
+.text-white {
+  color: var(--white) !important;
+}
+
+.text-black {
+  color: var(--black) !important;
+}
+
+.border-white {
+  border-color: var(--white) !important;
+}
+
+.border-black {
+  border-color: var(--black) !important;
+}
+
+/* Ensure dark mode uses proper Antipaya colors */
+.dark .bg-white {
+  background-color: var(--black) !important;
+}
+
+.dark .text-black {
+  color: var(--white) !important;
+}
+
+.dark .border-white {
+  border-color: var(--black) !important;
+}
+
+.dark .border-black {
+  border-color: var(--white) !important;
+}
+
+/* Form inputs and controls styling */
+input,
+textarea,
+select {
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+  border-color: var(--border) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted) !important;
+}
+
+/* Form labels */
+label {
+  color: var(--foreground) !important;
+}
+
+/* FAQ and content sections */
+.content-section {
+  background-color: var(--background);
+}
+
+.faq-item {
+  background-color: rgba(107, 114, 128, 0.05);
+}
+
+.dark .faq-item {
+  background-color: rgba(156, 163, 175, 0.1);
+}
+
+/* Force gradient stops to use the dark background when .dark is active.
+   Tailwind gradients use CSS variables (--tw-gradient-from / --tw-gradient-to / --tw-gradient-stops),
+   so mapping common "from/via/to" utility classes to var(--background) makes the hero
+   and other gradient backgrounds switch cleanly to the dark color. */
+.dark .from-white,
+.dark .from-gray-50,
+.dark .from-gray-100,
+.dark .via-gray-50,
+.dark .to-pink-50,
+.dark .to-gray-100 {
+  /* Ensure all gradient stop variables point to the dark background */
+  --tw-gradient-from: var(--background) !important;
+  --tw-gradient-via: var(--background) !important;
+  --tw-gradient-to: var(--background) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to) !important;
+}
+
+/* Dark mode overrides for card styling classes to ensure proper dark theme */
+.dark .card-professional,
+.dark .card-whatsapp,
+.dark .card-secondary,
+.dark .card-accent,
+.dark .card-neutral {
+  background: linear-gradient(135deg, var(--background) 0%, rgba(55, 65, 81, 0.1) 100%) !important;
+  border-color: var(--border) !important;
+  color: var(--foreground) !important;
 }

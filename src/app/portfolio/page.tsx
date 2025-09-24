@@ -169,7 +169,7 @@ export default function Portfolio() {
                             {filteredProjects.map((project) => (
                                 <div
                                     key={project.id}
-                                    className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group"
+                                    className="card-neutral overflow-hidden group"
                                 >
                                     {/* Project Image Placeholder */}
                                     <div className="h-48 bg-gradient-to-br from-primary/10 to-secondary/10 relative overflow-hidden">
@@ -311,10 +311,10 @@ export default function Portfolio() {
                 {/* CTA */}
                 <section className="py-20 bg-gradient-to-r from-primary to-secondary">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+                        <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
                             Ready to create your success story?
                         </h2>
-                        <p className="text-xl text-white/90 mb-8">
+                        <p className="text-xl text-black mb-8 dark:text-white">
                             Let&apos;s build something remarkable together. Your project could be our next showcase.
                         </p>
                         <a

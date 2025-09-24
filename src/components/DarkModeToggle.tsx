@@ -4,33 +4,51 @@ import { useState, useEffect } from 'react';
 
 export default function DarkModeToggle() {
     const [isDark, setIsDark] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        // Check if user has a dark mode preference
-        const savedMode = localStorage.getItem('darkMode');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setMounted(true);
 
-        if (savedMode) {
-            setIsDark(savedMode === 'true');
-        } else {
-            setIsDark(prefersDark);
+        // Get existing theme from html element (set by inline script)
+        const htmlElement = document.documentElement;
+        const currentlyDark = htmlElement.classList.contains('dark');
+
+        // Check stored preference
+        const savedMode = localStorage.getItem('darkMode');
+        const hasStoredPreference = savedMode !== null;
+
+        // Use current state from html element as primary source
+        const shouldBeDark = hasStoredPreference ? savedMode === 'true' : currentlyDark;
+
+        setIsDark(shouldBeDark);
+
+        // Ensure html element matches our preference
+        if (shouldBeDark && !currentlyDark) {
+            htmlElement.classList.add('dark');
+        } else if (!shouldBeDark && currentlyDark) {
+            htmlElement.classList.remove('dark');
+        }
+
+        // Save preference if not stored
+        if (!hasStoredPreference) {
+            localStorage.setItem('darkMode', shouldBeDark.toString());
         }
     }, []);
 
-    useEffect(() => {
-        // Apply dark mode to document
-        if (isDark) {
-            document.documentElement.classList.add('dark');
+    const toggleDarkMode = () => {
+        const newDarkMode = !isDark;
+        setIsDark(newDarkMode);
+
+        // Apply theme immediately to html element
+        const htmlElement = document.documentElement;
+        if (newDarkMode) {
+            htmlElement.classList.add('dark');
         } else {
-            document.documentElement.classList.remove('dark');
+            htmlElement.classList.remove('dark');
         }
 
-        // Save preference
-        localStorage.setItem('darkMode', isDark.toString());
-    }, [isDark]);
-
-    const toggleDarkMode = () => {
-        setIsDark(!isDark);
+        // Save to localStorage
+        localStorage.setItem('darkMode', newDarkMode.toString());
     };
 
     return (

@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
 import ProgressBar from "@/components/ProgressBar";
 import ScrollProgress from "@/components/ScrollProgress";
-import ContactFloatingButton from "@/components/ContactFloatingButton";
+import FloatingActions from "@/components/FloatingActions";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,18 +50,36 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="antialiased bg-white dark:bg-gray-900 transition-colors duration-300">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var savedMode = localStorage.getItem('darkMode');
+                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  var shouldBeDark = savedMode ? savedMode === 'true' : prefersDark;
+                  
+                  if (shouldBeDark) {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="antialiased transition-colors duration-300" style={{ backgroundColor: 'var(--background)', color: 'var(--foreground)' }}>
         <ScrollProgress />
         <ProgressBar />
-  <ContactFloatingButton />
+        <FloatingActions />
         <div className="min-h-screen flex flex-col">
           <main className="flex-grow">
             {children}
           </main>
           <Footer />
         </div>
-        <ScrollToTop />
         {/* Skip to main content for accessibility */}
         <a
           href="#main-content"

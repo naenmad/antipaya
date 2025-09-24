@@ -99,12 +99,29 @@ export default function Home() {
                       <div className="flex-1 bg-gray-100 h-8 rounded-md"></div>
                     </div>
                     <div className="space-y-4">
-                      <div className="h-4 bg-primary/20 rounded-md w-3/4"></div>
-                      <div className="h-4 bg-secondary/20 rounded-md w-1/2"></div>
-                      <div className="h-4 bg-accent/20 rounded-md w-2/3"></div>
+                      <div className="space-y-2">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span className="text-sm font-medium text-gray-700">FlowCommerce API</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                          <span className="text-sm font-medium text-gray-700">HealthBridge Platform</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                          <span className="text-sm font-medium text-gray-700">NeoBank Identity</span>
+                        </div>
+                      </div>
                       <div className="grid grid-cols-2 gap-4 pt-4">
-                        <div className="h-24 bg-gradient-to-br from-primary/10 to-primary/20 rounded-lg"></div>
-                        <div className="h-24 bg-gradient-to-br from-secondary/10 to-secondary/20 rounded-lg"></div>
+                        <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/20 rounded-lg">
+                          <div className="text-2xl font-bold text-primary">50+</div>
+                          <div className="text-xs text-gray-600">Projects</div>
+                        </div>
+                        <div className="p-4 bg-gradient-to-br from-secondary/10 to-secondary/20 rounded-lg">
+                          <div className="text-2xl font-bold text-secondary">25+</div>
+                          <div className="text-xs text-gray-600">Clients</div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -130,31 +147,37 @@ export default function Home() {
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mt-16">
-              <div className="space-y-4">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                  <div className="w-8 h-8 bg-primary rounded-full"></div>
+              <div className="card-professional text-center">
+                <div className="icon-circle icon-circle-primary">
+                  <svg className="w-8 h-8" style={{ color: 'var(--white)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                  </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">Modular</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Modular</h3>
                 <p className="text-gray-600">
                   Every component, every system, every solution — built to adapt and evolve with your needs.
                 </p>
               </div>
 
-              <div className="space-y-4">
-                <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto">
-                  <div className="w-8 h-8 bg-secondary rounded-full"></div>
+              <div className="card-secondary text-center">
+                <div className="icon-circle icon-circle-secondary">
+                  <svg className="w-8 h-8" style={{ color: 'var(--white)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">Scalable</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Scalable</h3>
                 <p className="text-gray-600">
                   From MVP to enterprise. Our architecture grows with your ambitions, no matter how big.
                 </p>
               </div>
 
-              <div className="space-y-4">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto">
-                  <div className="w-8 h-8 bg-accent rounded-full"></div>
+              <div className="card-accent text-center">
+                <div className="icon-circle icon-circle-accent">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">Soulful</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Soulful</h3>
                 <p className="text-gray-600">
                   Technology with purpose. Every line of code carries intention, every design tells a story.
                 </p>
@@ -166,10 +189,10 @@ export default function Home() {
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-r from-primary to-secondary">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
               Ready to build something extraordinary?
             </h2>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-black mb-8 dark:text-white">
               Let&apos;s turn your vision into reality. Start with a conversation.
             </p>
             <Link
