@@ -26,6 +26,13 @@ export const metadata: Metadata = {
   keywords: ["software development", "digital house", "Flutter", "Next.js", "branding", "web development", "mobile apps", "API development"],
   authors: [{ name: "Antipaya Team" }],
   creator: "Antipaya",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+    viewportFit: "cover"
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -33,16 +40,52 @@ export const metadata: Metadata = {
     title: "Antipaya - Software & Digital House",
     description: "Build with soul. Scale with clarity. Professional software and digital solutions.",
     siteName: "Antipaya",
+    images: [
+      {
+        url: "/android-chrome-512x512.png",
+        width: 512,
+        height: 512,
+        alt: "Antipaya Logo"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title: "Antipaya - Software & Digital House",
     description: "Build with soul. Scale with clarity.",
+    images: ["/android-chrome-512x512.png"],
+    creator: "@antipaya"
   },
   robots: {
     index: true,
     follow: true,
   },
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" }
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
+    ],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/safari-pinned-tab.svg",
+        color: "#fb5801"
+      }
+    ]
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Antipaya"
+  },
+  formatDetection: {
+    telephone: false
+  }
 };
 
 export default function RootLayout({
@@ -53,6 +96,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <head>
+        {/* PWA and Browser Compatibility */}
+        <meta name="theme-color" content="#fb5801" />
+        <meta name="msapplication-TileColor" content="#fb5801" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+
+        {/* Preload critical resources */}
+        <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
