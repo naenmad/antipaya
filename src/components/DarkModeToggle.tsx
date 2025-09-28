@@ -4,11 +4,8 @@ import { useState, useEffect } from 'react';
 
 export default function DarkModeToggle() {
     const [isDark, setIsDark] = useState(false);
-    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        setMounted(true);
-
         // Get existing theme from html element (set by inline script)
         const htmlElement = document.documentElement;
         const currentlyDark = htmlElement.classList.contains('dark');

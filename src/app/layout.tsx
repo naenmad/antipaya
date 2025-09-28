@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ProgressBar from "@/components/ProgressBar";
 import ScrollProgress from "@/components/ScrollProgress";
 import FloatingActions from "@/components/FloatingActions";
+import TextSelectionEffect from "@/components/TextSelectionEffect";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const geistSans = Geist({
@@ -124,6 +125,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased transition-colors duration-300" style={{ backgroundColor: 'var(--background)', color: 'var(--foreground)' }}>
         <LanguageProvider>
+          <TextSelectionEffect />
           <ScrollProgress />
           <ProgressBar />
           <FloatingActions />

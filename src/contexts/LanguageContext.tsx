@@ -23,6 +23,8 @@ const translations = {
         'nav.testimonials': 'Testimonials',
         'nav.contact': 'Contact',
         'nav.blog': 'Blog',
+        'nav.language': 'Language',
+        'nav.theme': 'Theme',
 
         // Home page
         'home.hero.title1': 'Build with',
@@ -307,6 +309,8 @@ const translations = {
         'nav.testimonials': 'Testimoni',
         'nav.contact': 'Kontak',
         'nav.blog': 'Blog',
+        'nav.language': 'Bahasa',
+        'nav.theme': 'Tema',
 
         // Home page
         'home.hero.title1': 'Bangun dengan',

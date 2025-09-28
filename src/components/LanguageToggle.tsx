@@ -20,17 +20,17 @@ export default function LanguageToggle() {
                 className={`absolute top-1 w-6 h-6 bg-white dark:bg-gray-800 rounded-full shadow-md transition-all duration-300 flex items-center justify-center text-xs font-bold ${language === 'id' ? 'translate-x-8' : 'translate-x-0'
                     }`}
             >
-                <span className="text-gray-800 dark:text-white">
+                <span className="text-black dark:text-white">
                     {language.toUpperCase()}
                 </span>
             </div>
 
             {/* Background labels */}
             <div className="absolute inset-0 flex items-center justify-between px-2 text-xs font-medium">
-                <span className={`transition-opacity duration-300 ${language === 'en' ? 'opacity-0' : 'opacity-60 text-gray-600 dark:text-gray-400'}`}>
+                <span className={`transition-opacity duration-300 ${language === 'en' ? 'opacity-0' : 'opacity-60 text-black dark:text-gray-400'}`}>
                     EN
                 </span>
-                <span className={`transition-opacity duration-300 ${language === 'id' ? 'opacity-0' : 'opacity-60 text-gray-600 dark:text-gray-400'}`}>
+                <span className={`transition-opacity duration-300 ${language === 'id' ? 'opacity-0' : 'opacity-60 text-black dark:text-gray-400'}`}>
                     ID
                 </span>
             </div>

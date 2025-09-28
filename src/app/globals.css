@@ -51,15 +51,191 @@ html {
   outline-offset: 2px;
 }
 
-/* Custom text selection */
+/* Enhanced Text Selection with Inverted Colors and Effects */
 ::selection {
-  background-color: var(--primary);
-  color: var(--white);
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: 4px;
+  padding: 1px 2px;
+  text-shadow: none;
+  box-shadow:
+    0 0 10px rgba(0, 123, 255, 0.4),
+    0 0 20px rgba(0, 123, 255, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: selection-pulse 2s ease-in-out infinite;
 }
 
 ::-moz-selection {
-  background-color: var(--primary);
-  color: var(--white);
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: 4px;
+  text-shadow: none;
+}
+
+/* Dark mode selection - same inverted logic */
+.dark ::selection {
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: 4px;
+  padding: 1px 2px;
+  text-shadow: none;
+  box-shadow:
+    0 0 10px rgba(0, 191, 255, 0.5),
+    0 0 20px rgba(0, 191, 255, 0.3),
+    0 2px 4px rgba(255, 255, 255, 0.1);
+  animation: selection-pulse-dark 2s ease-in-out infinite;
+}
+
+.dark ::-moz-selection {
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: 4px;
+  text-shadow: none;
+}
+
+/* Selection pulse animations */
+@keyframes selection-pulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 10px rgba(0, 123, 255, 0.4),
+      0 0 20px rgba(0, 123, 255, 0.2),
+      0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  50% {
+    box-shadow:
+      0 0 15px rgba(0, 123, 255, 0.6),
+      0 0 30px rgba(0, 123, 255, 0.4),
+      0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@keyframes selection-pulse-dark {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 10px rgba(0, 191, 255, 0.5),
+      0 0 20px rgba(0, 191, 255, 0.3),
+      0 2px 4px rgba(255, 255, 255, 0.1);
+  }
+
+  50% {
+    box-shadow:
+      0 0 15px rgba(0, 191, 255, 0.7),
+      0 0 30px rgba(0, 191, 255, 0.5),
+      0 2px 6px rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Blur effect for background when text is selected */
+body.selecting {
+  position: relative;
+}
+
+body.selecting::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(1, 2, 3, 0.1);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  animation: blur-fade-in 0.3s ease-out forwards;
+}
+
+@keyframes blur-fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Apply blur to all content when selecting, except cleared elements */
+body.selecting *:not(.selection-clear) {
+  filter: blur(2px);
+  transition: filter 0.2s ease-out;
+}
+
+/* Explicitly remove blur from cleared elements and key UI */
+body.selecting .selection-clear,
+body.selecting nav,
+body.selecting header,
+body.selecting footer,
+body.selecting .navbar,
+body.selecting button,
+body.selecting input,
+body.selecting select,
+body.selecting textarea {
+  filter: none !important;
+}
+
+/* Text selection - SHARP and HIGHLIGHTED */
+::selection {
+  position: relative;
+  z-index: 10000 !important;
+  isolation: isolate;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+::-moz-selection {
+  position: relative;
+  z-index: 10000 !important;
+  isolation: isolate;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* FORCE selected text to be COMPLETELY unblurred */
+body.selecting *::selection {
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-filter: none !important;
+  position: relative;
+  z-index: 10000 !important;
+  isolation: isolate;
+  transform: translateZ(1px);
+  contain: layout style paint;
+}
+
+body.selecting *::-moz-selection {
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-filter: none !important;
+  position: relative;
+  z-index: 10000 !important;
+  isolation: isolate;
+  transform: translateZ(1px);
+  contain: layout style paint;
+}
+
+/* Create a crisp layer for selected content */
+body.selecting *:has(::selection) {
+  filter: none !important;
+  transform: translateZ(1px);
+}
+
+/* Fallback: target common text elements specifically */
+body.selecting p::selection,
+body.selecting h1::selection,
+body.selecting h2::selection,
+body.selecting h3::selection,
+body.selecting h4::selection,
+body.selecting h5::selection,
+body.selecting h6::selection,
+body.selecting span::selection,
+body.selecting div::selection,
+body.selecting a::selection,
+body.selecting li::selection {
+  filter: none !important;
+  backdrop-filter: none !important;
+  position: relative;
+  z-index: 10000 !important;
 }
 
 /* Custom scrollbar */

@@ -9,29 +9,29 @@ export default function Footer() {
     const { t } = useLanguage()
 
     return (
-        <footer className="bg-gray-900 text-white">
+        <footer className="bg-white dark:bg-gray-900 border-t border-black dark:border-gray-700/50 transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Company Info */}
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         <div className="flex items-center space-x-3">
                             <Image
                                 src="/logo.svg"
                                 alt="Antipaya Logo"
-                                width={32}
-                                height={32}
-                                className="brightness-0 invert"
+                                width={40}
+                                height={40}
+                                className="drop-shadow-sm"
                             />
-                            <h3 className="text-2xl font-bold text-primary">Antipaya</h3>
+                            <h3 className="text-2xl font-bold text-primary bg-gradient-to-r from-primary to-secondary bg-clip-text hover:text-transparent">Antipaya</h3>
                         </div>
-                        <p className="text-gray-300 text-sm leading-relaxed">
+                        <p className="text-black dark:text-gray-300 text-sm leading-relaxed">
                             {t('footer.tagline')}<br />
                             {t('footer.description')}
                         </p>
                         <div className="flex space-x-4">
                             <a
                                 href="#"
-                                className="text-gray-400 hover:text-primary transition-colors duration-200"
+                                className="p-2 rounded-lg text-black dark:text-gray-400 hover:text-primary hover:bg-primary/10 transition-all duration-300"
                                 aria-label="Facebook"
                             >
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -40,16 +40,16 @@ export default function Footer() {
                             </a>
                             <a
                                 href="#"
-                                className="text-gray-400 hover:text-primary transition-colors duration-200"
+                                className="p-2 rounded-lg text-black dark:text-gray-400 hover:text-primary hover:bg-primary/10 transition-all duration-300"
                                 aria-label="Instagram"
                             >
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.621 5.367 11.988 11.988 11.988c6.62 0 11.988-5.367 11.988-11.988C24.005 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.896 3.708 13.745 3.708 12.448s.49-2.448 1.297-3.323C5.801 8.198 6.952 7.708 8.249 7.708s2.448.49 3.323 1.297c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323c-.875.807-2.026 1.297-3.323 1.297zm7.718 0c-1.297 0-2.448-.49-3.323-1.297-.807-.875-1.297-2.026-1.297-3.323s.49-2.448 1.297-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323c-.875.807-2.026 1.297-3.323 1.297z" />
+                                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.621 5.367 11.988 11.988 11.988c6.62 0 11.988-5.367 11.988-11.988C24.005 5.367 18.637.001 12.017.001z" />
                                 </svg>
                             </a>
                             <a
                                 href="#"
-                                className="text-gray-400 hover:text-primary transition-colors duration-200"
+                                className="p-2 rounded-lg text-black dark:text-gray-400 hover:text-primary hover:bg-primary/10 transition-all duration-300"
                                 aria-label="LinkedIn"
                             >
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -58,7 +58,7 @@ export default function Footer() {
                             </a>
                             <a
                                 href="#"
-                                className="text-gray-400 hover:text-primary transition-colors duration-200"
+                                className="p-2 rounded-lg text-black dark:text-gray-400 hover:text-primary hover:bg-primary/10 transition-all duration-300"
                                 aria-label="GitHub"
                             >
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -69,95 +69,122 @@ export default function Footer() {
                     </div>
 
                     {/* Quick Links */}
-                    <div className="space-y-4">
-                        <h4 className="text-lg font-semibold">{t('footer.quickLinks')}</h4>
-                        <ul className="space-y-2">
+                    <div className="space-y-6">
+                        <h4 className="text-lg font-semibold text-black dark:text-white">{t('footer.quickLinks')}</h4>
+                        <ul className="space-y-3">
                             <li>
-                                <Link href="/" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                                    {t('nav.home')}
+                                <Link href="/" className="group flex items-center space-x-2 text-black dark:text-gray-300 hover:text-primary transition-all duration-300">
+                                    <svg className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                                    <span>{t('nav.home')}</span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/about" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                                    {t('nav.about')}
+                                <Link href="/about" className="group flex items-center space-x-2 text-black dark:text-gray-300 hover:text-primary transition-all duration-300">
+                                    <svg className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                                    <span>{t('nav.about')}</span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                                    {t('nav.services')}
+                                <Link href="/services" className="group flex items-center space-x-2 text-black dark:text-gray-300 hover:text-primary transition-all duration-300">
+                                    <svg className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                    <span>{t('nav.services')}</span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/portfolio" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                                    {t('nav.portfolio')}
+                                <Link href="/portfolio" className="group flex items-center space-x-2 text-black dark:text-gray-300 hover:text-primary transition-all duration-300">
+                                    <svg className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                                    <span>{t('nav.portfolio')}</span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/testimonials" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                                    {t('nav.testimonials')}
+                                <Link href="/testimonials" className="group flex items-center space-x-2 text-black dark:text-gray-300 hover:text-primary transition-all duration-300">
+                                    <svg className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+                                    <span>{t('nav.testimonials')}</span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/contact" className="text-gray-300 hover:text-primary transition-colors duration-200">
-                                    Contact
+                                <Link href="/contact" className="group flex items-center space-x-2 text-black dark:text-gray-300 hover:text-primary transition-all duration-300">
+                                    <svg className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                    <span>{t('nav.contact')}</span>
                                 </Link>
                             </li>
                         </ul>
                     </div>
 
                     {/* Services */}
-                    <div className="space-y-4">
-                        <h4 className="text-lg font-semibold">{t('footer.services')}</h4>
-                        <ul className="space-y-2">
-                            <li className="text-gray-300 text-sm">{t('footer.softwareDev')}</li>
-                            <li className="text-gray-300 text-sm">{t('footer.mobileDev')}</li>
-                            <li className="text-gray-300 text-sm">{t('footer.branding')}</li>
-                            <li className="text-gray-300 text-sm">{t('footer.eventPlanning')}</li>
-                            <li className="text-gray-300 text-sm">{t('footer.documentation')}</li>
+                    <div className="space-y-6">
+                        <h4 className="text-lg font-semibold text-black dark:text-white">{t('footer.services')}</h4>
+                        <ul className="space-y-3">
+                            <li className="flex items-center space-x-2 text-black dark:text-gray-300 text-sm">
+                                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                                <span>{t('footer.softwareDev')}</span>
+                            </li>
+                            <li className="flex items-center space-x-2 text-black dark:text-gray-300 text-sm">
+                                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                                <span>{t('footer.mobileDev')}</span>
+                            </li>
+                            <li className="flex items-center space-x-2 text-black dark:text-gray-300 text-sm">
+                                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                                <span>{t('footer.branding')}</span>
+                            </li>
+                            <li className="flex items-center space-x-2 text-black dark:text-gray-300 text-sm">
+                                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                                <span>{t('footer.eventPlanning')}</span>
+                            </li>
+                            <li className="flex items-center space-x-2 text-black dark:text-gray-300 text-sm">
+                                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                                <span>{t('footer.documentation')}</span>
+                            </li>
                         </ul>
                     </div>
 
                     {/* Contact Info */}
-                    <div className="space-y-4">
-                        <h4 className="text-lg font-semibold">{t('footer.contact')}</h4>
-                        <div className="space-y-2">
-                            <div className="flex items-center space-x-2">
-                                <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
-                                    <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
-                                </svg>
-                                <span className="text-gray-300 text-sm">antipaya@gmail.com</span>
+                    <div className="space-y-6">
+                        <h4 className="text-lg font-semibold text-black dark:text-white">{t('footer.contact')}</h4>
+                        <div className="space-y-4">
+                            <div className="group flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50 transition-all duration-300">
+                                <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">
+                                    <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                                        <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                                    </svg>
+                                </div>
+                                <span className="text-black dark:text-gray-300 text-sm group-hover:text-primary transition-colors duration-300">antipaya@gmail.com</span>
                             </div>
-                            <div className="flex items-center space-x-2">
-                                <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                                    <path fillRule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clipRule="evenodd" />
-                                </svg>
-                                <span className="text-gray-300 text-sm">+62 851-8305-8315</span>
+                            <div className="group flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50 transition-all duration-300">
+                                <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">
+                                    <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fillRule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clipRule="evenodd" />
+                                    </svg>
+                                </div>
+                                <span className="text-black dark:text-gray-300 text-sm group-hover:text-primary transition-colors duration-300">+62 851-8305-8315</span>
                             </div>
-                            <div className="flex items-center space-x-2">
-                                <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                                    <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-                                </svg>
-                                <span className="text-gray-300 text-sm">Karawang, Indonesia</span>
+                            <div className="group flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50 transition-all duration-300">
+                                <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">
+                                    <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+                                    </svg>
+                                </div>
+                                <span className="text-black dark:text-gray-300 text-sm group-hover:text-primary transition-colors duration-300">Karawang, Indonesia</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom Section */}
-                <div className="border-t border-gray-800 mt-8 pt-8">
+                <div className="border-t border-black dark:border-gray-700/50 mt-12 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                        <div className="text-gray-400 text-sm">
+                        <div className="text-black dark:text-gray-400 text-sm">
                             © {currentYear} Antipaya. {t('footer.rights')}
                         </div>
                         <div className="flex space-x-6">
-                            <Link href="/privacy" className="text-gray-400 hover:text-primary text-sm transition-colors duration-200">
+                            <Link href="/privacy" className="text-black dark:text-gray-400 hover:text-primary text-sm transition-all duration-300 hover:underline">
                                 {t('footer.privacy')}
                             </Link>
-                            <Link href="/terms" className="text-gray-400 hover:text-primary text-sm transition-colors duration-200">
+                            <Link href="/terms" className="text-black dark:text-gray-400 hover:text-primary text-sm transition-all duration-300 hover:underline">
                                 {t('footer.terms')}
                             </Link>
-                            <Link href="/sitemap" className="text-gray-400 hover:text-primary text-sm transition-colors duration-200">
+                            <Link href="/sitemap" className="text-black dark:text-gray-400 hover:text-primary text-sm transition-all duration-300 hover:underline">
                                 {t('footer.sitemap')}
                             </Link>
                         </div>
