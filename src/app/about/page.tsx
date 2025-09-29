@@ -1,10 +1,40 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import Navigation from '@/components/Navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function About() {
     const { t } = useLanguage();
+
+    const renderRichText = (text: string) => {
+        const nodes: ReactNode[] = [];
+        const strongPattern = /<strong>(.*?)<\/strong>/g;
+        let lastIndex = 0;
+        let match: RegExpExecArray | null;
+        let key = 0;
+
+        while ((match = strongPattern.exec(text)) !== null) {
+            if (match.index > lastIndex) {
+                nodes.push(text.slice(lastIndex, match.index));
+            }
+
+            nodes.push(
+                <strong key={`strong-${key}`} className="font-semibold text-black dark:text-white">
+                    {match[1]}
+                </strong>,
+            );
+
+            lastIndex = strongPattern.lastIndex;
+            key += 1;
+        }
+
+        if (lastIndex < text.length) {
+            nodes.push(text.slice(lastIndex));
+        }
+
+        return nodes;
+    };
 
     return (
         <>
@@ -37,7 +67,7 @@ export default function About() {
                                             <div className="w-2 h-2 bg-white rounded-full"></div>
                                         </div>
                                         <p className="text-gray-700">
-                                            {t('about.vision.points.humanCentered')}
+                                            {renderRichText(t('about.vision.points.humanCentered'))}
                                         </p>
                                     </div>
                                     <div className="flex items-start space-x-3">
@@ -45,7 +75,7 @@ export default function About() {
                                             <div className="w-2 h-2 bg-white rounded-full"></div>
                                         </div>
                                         <p className="text-gray-700">
-                                            {t('about.vision.points.futureReady')}
+                                            {renderRichText(t('about.vision.points.futureReady'))}
                                         </p>
                                     </div>
                                     <div className="flex items-start space-x-3">
@@ -53,7 +83,7 @@ export default function About() {
                                             <div className="w-2 h-2 bg-white rounded-full"></div>
                                         </div>
                                         <p className="text-gray-700">
-                                            {t('about.vision.points.accessible')}
+                                            {renderRichText(t('about.vision.points.accessible'))}
                                         </p>
                                     </div>
                                 </div>

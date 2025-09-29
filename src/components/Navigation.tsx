@@ -62,7 +62,7 @@ const Navigation = () => {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-200/50 dark:border-gray-700/50 transition-all duration-300 shadow-sm">
+            <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-800/60 dark:border-gray-700/50 transition-all duration-300 shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         {/* Logo */}
@@ -90,7 +90,7 @@ const Navigation = () => {
                                     href={item.href}
                                     className={`relative py-2 px-3 rounded-lg transition-all duration-300 font-medium group ${isActive(item.href)
                                         ? 'text-primary dark:text-primary bg-primary/5 dark:bg-primary/10'
-                                        : 'text-black dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-gray-100/70 dark:hover:bg-gray-800/70'
+                                        : 'text-white dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-white/10 dark:hover:bg-gray-800/70'
                                         }`}
                                 >
                                     <span className="relative z-10">{item.label}</span>
@@ -115,7 +115,7 @@ const Navigation = () => {
                             </Link>
 
                             {/* Toggle Controls */}
-                            <div className="flex items-center space-x-3 ml-6 pl-6 border-l border-gray-200 dark:border-gray-700">
+                            <div className="flex items-center space-x-3 ml-6 pl-6 border-l border-white/20 dark:border-gray-700">
                                 <LanguageToggle />
                                 <DarkModeToggle />
                             </div>
@@ -127,7 +127,7 @@ const Navigation = () => {
                                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                                 className={`relative p-2 rounded-lg transition-all duration-300 focus:outline-none ${isMenuOpen
                                     ? 'bg-primary/10 text-primary'
-                                    : 'text-black dark:text-gray-300 hover:text-primary hover:bg-gray-100/70 dark:hover:bg-gray-800/70'
+                                    : 'text-white dark:text-gray-300 hover:text-primary hover:bg-white/10 dark:hover:bg-gray-800/70'
                                     }`}
                                 aria-label="Toggle navigation menu"
                             >
@@ -156,10 +156,10 @@ const Navigation = () => {
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 -translate-y-full pointer-events-none'
                 }`}>
-                <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-black/60 dark:border-gray-700/50 shadow-lg">
+                <div className="bg-black/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-black/60 dark:border-gray-700/50 shadow-lg">
                     <div className="max-w-7xl mx-auto px-4 py-6">
                         {/* Mobile Header */}
-                        <div className="flex items-center justify-center mb-6 pb-4 border-b border-gray-200/50 dark:border-gray-700/50">
+                        <div className="flex items-center justify-center mb-6 pb-4 border-b border-white/20 dark:border-gray-700/50">
                             <div className="flex items-center space-x-3">
                                 <Image
                                     src="/logo.svg"
@@ -182,7 +182,7 @@ const Navigation = () => {
                                     href={item.href}
                                     className={`group flex items-center space-x-4 px-4 py-3 rounded-xl font-medium transition-all duration-300 transform ${isActive(item.href)
                                         ? 'text-primary bg-gradient-to-r from-primary/10 to-secondary/10 border-l-4 border-primary shadow-sm'
-                                        : 'text-black dark:text-gray-300 hover:text-primary hover:bg-gray-100/70 dark:hover:bg-gray-800/70 hover:translate-x-2'
+                                        : 'text-white dark:text-gray-300 hover:text-primary hover:bg-white/10 dark:hover:bg-gray-800/70 hover:translate-x-2'
                                         }`}
                                     style={{
                                         animationDelay: `${index * 50}ms`
@@ -199,7 +199,7 @@ const Navigation = () => {
                         </div>
 
                         {/* CTA Section */}
-                        <div className="pt-4 border-t border-gray-200/50 dark:border-gray-700/50">
+                        <div className="pt-4 border-t border-white/20 dark:border-gray-700/50">
                             <Link
                                 href="/contact"
                                 className="group flex items-center justify-center space-x-3 w-full bg-gradient-to-r from-primary to-secondary text-white px-6 py-4 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 active:scale-95"
@@ -216,15 +216,15 @@ const Navigation = () => {
                         </div>
 
                         {/* Settings Section */}
-                        <div className="mt-6 pt-4 border-t border-gray-200/50 dark:border-gray-700/50">
+                        <div className="mt-6 pt-4 border-t border-white/20 dark:border-gray-700/50">
                             <div className="flex items-center justify-center space-x-6">
                                 <div className="flex items-center space-x-2">
-                                    <span className="text-sm text-black dark:text-gray-400">{t('nav.language')}</span>
+                                    <span className="text-sm text-white dark:text-gray-400">{t('nav.language')}</span>
                                     <LanguageToggle />
                                 </div>
-                                <div className="w-px h-6 bg-gray-300 dark:bg-gray-600"></div>
+                                <div className="w-px h-6 bg-white/40 dark:bg-gray-600"></div>
                                 <div className="flex items-center space-x-2">
-                                    <span className="text-sm text-black dark:text-gray-400">{t('nav.theme')}</span>
+                                    <span className="text-sm text-white dark:text-gray-400">{t('nav.theme')}</span>
                                     <DarkModeToggle />
                                 </div>
                             </div>
