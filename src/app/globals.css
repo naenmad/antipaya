@@ -448,6 +448,40 @@ body.selecting li::selection {
   }
 }
 
+/* Seamless infinite scroll animation for TrustedBy component */
+@keyframes scroll-slow {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-fast {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-slow {
+  animation: scroll-slow 30s linear infinite;
+}
+
+.animate-scroll-fast {
+  animation: scroll-fast 15s linear infinite;
+}
+
+.animate-scroll-slow:hover,
+.animate-scroll-fast:hover {
+  animation-play-state: paused;
+}
+
 .animate-fade-in {
   animation: fade-in 0.6s ease-out forwards;
 }
@@ -677,4 +711,30 @@ label {
   background: linear-gradient(135deg, var(--background) 0%, rgba(55, 65, 81, 0.1) 100%) !important;
   border-color: var(--border) !important;
   color: var(--foreground) !important;
+}
+
+/* Trusted By Carousel Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Smooth scrolling for mobile touch */
+@media (max-width: 768px) {
+  .animate-scroll {
+    animation-duration: 20s;
+  }
 }

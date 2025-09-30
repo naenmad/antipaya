@@ -294,6 +294,15 @@ const translations = {
         'testimonials.cta.button': 'Start Your Journey',
         'testimonials.project': 'Project:',
 
+        // Trusted By section
+        'trustedBy.title': 'Trusted by Industry Leaders',
+        'trustedBy.subtitle': 'Join 50+ companies who chose Antipaya for their digital transformation journey',
+        'trustedBy.client': 'Client',
+        'trustedBy.stats.projects': 'Projects Completed',
+        'trustedBy.stats.satisfaction': 'Client Satisfaction',
+        'trustedBy.stats.support': 'Support Available',
+        'trustedBy.stats.experience': 'Years Experience',
+
         // Common elements
         'common.readMore': 'Read More',
         'common.learnMore': 'Learn More',
@@ -397,6 +406,15 @@ const translations = {
         'about.philosophy.modular.points.clean': 'Arsitektur yang bersih',
         'about.philosophy.modular.points.scalable': 'Fondasi yang scalable',
         'about.philosophy.modular.points.flexible': 'Integrasi yang fleksibel',
+
+        // Trusted By section
+        'trustedBy.title': 'Dipercaya oleh Pemimpin Industri',
+        'trustedBy.subtitle': 'Bergabunglah dengan 50+ perusahaan yang memilih Antipaya untuk perjalanan transformasi digital mereka',
+        'trustedBy.client': 'Klien',
+        'trustedBy.stats.projects': 'Proyek Selesai',
+        'trustedBy.stats.satisfaction': 'Kepuasan Klien',
+        'trustedBy.stats.support': 'Dukungan Tersedia',
+        'trustedBy.stats.experience': 'Tahun Pengalaman',
 
         'about.philosophy.scalable.title': 'Scalable',
         'about.philosophy.scalable.description': 'Dari pengguna pertama hingga jutaan pengguna, dari startup hingga enterprise. Solusi kami berkembang dengan ambisi Anda.',

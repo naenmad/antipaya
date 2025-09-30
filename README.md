@@ -3,6 +3,3 @@ Todo
 2. Buat page privacy policy, terms of service dan sitemap
 4. Not-found pagenya hanya tampil di desktop, di mobile yang tampil itu not found page bawaan next js
 
-
-Done
-1. 
